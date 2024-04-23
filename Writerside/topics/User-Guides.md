@@ -57,25 +57,26 @@ Learn how to leverage advanced features such as recurring payments, multi-curren
 
 Setting up and managing subscriptions and recurring payments.
 
-<chapter title="Guide to Recurring Payments" collapsible="true">
-    <p>This section provides a comprehensive guide to setting up recurring payments, including necessary API calls and best practices.</p>
-</chapter>
+**Guide to Recurring Payments**
+
+This section provides a comprehensive guide to setting up recurring payments, including necessary API calls and best
+practices.
 
 ### Multi-Currency Transactions
 
 How to accept and process payments in multiple currencies.
 
-<chapter title="Handling Multi-Currency" collapsible="true" default-state="expanded">
-    <p>Detailed steps and examples on managing multi-currency transactions to expand your global reach.</p>
-</chapter>
+**Handling Multi-Currency**
+
+Detailed steps and examples on managing multi-currency transactions to expand your global reach.
 
 ## Troubleshooting
 
 ### Common Issues and Resolutions
 
-<chapter title="FAQs on Common Issues" collapsible="true">
-    <p>If you encounter common problems, refer to this section for troubleshooting tips and potential solutions.</p>
-</chapter>
+**FAQs on Common Issues**
+
+If you encounter common problems, refer to this section for troubleshooting tips and potential solutions.
 
 ## Feedback and Support
 

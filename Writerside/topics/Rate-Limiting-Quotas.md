@@ -29,13 +29,16 @@ X-RateLimit-Reset: 1588400000
 Quotas determine the maximum number of requests that your application can make to the UCanPay API over a longer period,
 typically a month.
 
-<chapter title="Check Your Current Quota Usage" collapsible="true">
-    <p>To check your current quota usage, visit your account dashboard at <a href="https://ucanpay.ca/dashboard">ucanpay.ca/dashboard</a>. Detailed usage statistics are available to help you plan and manage your application's demands.</p>
-</chapter>
+**Check Your Current Quota Usage**
 
-<chapter title="Requesting Quota Increases" collapsible="true">
-    <p>If your business needs exceed the default quotas, you can request an increase by contacting our support team. Provide details about your use case and anticipated volume to support your request.</p>
-</chapter>
+To check your current quota usage, visit your account dashboard at <a href="https://ucanpay.ca/dashboard">
+ucanpay.ca/dashboard</a>. Detailed usage statistics are available to help you plan and manage your application's
+demands.
+
+**Requesting Quota Increases**
+
+If your business needs exceed the default quotas, you can request an increase by contacting our support team. Provide
+details about your use case and anticipated volume to support your request.
 
 ## Best Practices for Managing Rate Limits
 

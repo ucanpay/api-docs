@@ -30,16 +30,6 @@ Each entry in the changelog follows a structured format to provide clear and con
     </step>
 </procedure>
 
-## Example Changelog Entry
-
-Here is an example of how a changelog entry might look:
-
-<chapter title="Coming soon!" collapsible="true">
-    <p>
-      [placeholder]
-    </p>
-</chapter>
-
 ## Monitoring Changes
 
 Stay proactive by monitoring changes that may impact your integration:

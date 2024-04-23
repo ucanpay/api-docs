@@ -27,13 +27,15 @@ Our versioning strategy is designed to provide stability and predictability:
 
 To ensure a smooth transition between versions, follow these guidelines:
 
-<chapter collapsible="true" title="Subscribe to Update Notifications">
-    <p>Stay informed about upcoming releases and changes by subscribing to our API newsletter. You will receive update notifications and detailed release notes.</p>
-</chapter>
+**Subscribe to Update Notifications**
 
-<chapter collapsible="true" title="Testing with Sandbox Environment">
-    <p>Before deploying new versions in your production environment, test them in our sandbox environment to ensure compatibility.</p>
-</chapter>
+Stay informed about upcoming releases and changes by subscribing to our API newsletter. You will receive update
+notifications and detailed release notes.
+
+**Testing with Sandbox Environment**
+
+Before deploying new versions in your production environment, test them in our sandbox environment to ensure
+compatibility.
 
 ## Update Schedule
 
