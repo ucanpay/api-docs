@@ -30,15 +30,11 @@ Quotas determine the maximum number of requests that your application can make t
 typically a month.
 
 <chapter title="Check Your Current Quota Usage" collapsible="true">
-    <p>
-To check your current quota usage, visit your account dashboard at <a href="https://ucanpay.ca/dashboard">ucanpay.ca/dashboard</a>. Detailed usage statistics are available to help you plan and manage your application's demands.
-    </p>
+    <p>To check your current quota usage, visit your account dashboard at <a href="https://ucanpay.ca/dashboard">ucanpay.ca/dashboard</a>. Detailed usage statistics are available to help you plan and manage your application's demands.</p>
 </chapter>
 
 <chapter title="Requesting Quota Increases" collapsible="true">
-    <p>
-If your business needs exceed the default quotas, you can request an increase by contacting our support team. Provide details about your use case and anticipated volume to support your request.
-    </p>
+    <p>If your business needs exceed the default quotas, you can request an increase by contacting our support team. Provide details about your use case and anticipated volume to support your request.</p>
 </chapter>
 
 ## Best Practices for Managing Rate Limits

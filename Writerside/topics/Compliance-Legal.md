@@ -26,15 +26,11 @@ We are committed to upholding our legal obligations to our customers and partner
 responsibility:
 
 <chapter title="User Data Protection" collapsible="true">
-    <p>
-UCanPay implements advanced security measures to protect user data against unauthorized access and data breaches. Our legal team continuously updates our policies to align with new data protection laws.
-    </p>
+    <p>UCanPay implements advanced security measures to protect user data against unauthorized access and data breaches. Our legal team continuously updates our policies to align with new data protection laws.</p>
 </chapter>
 
 <chapter title="Financial Regulations" collapsible="true">
-    <p>
-We ensure that all financial transactions comply with the laws of the jurisdictions in which we operate. This includes abiding by anti-money laundering (AML) and counter-financing of terrorism (CFT) regulations.
-    </p>
+    <p>We ensure that all financial transactions comply with the laws of the jurisdictions in which we operate. This includes abiding by anti-money laundering (AML) and counter-financing of terrorism (CFT) regulations.</p>
 </chapter>
 
 ## Frequently Asked Questions

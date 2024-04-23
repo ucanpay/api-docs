@@ -36,6 +36,7 @@ Here is an example of how a changelog entry might look:
 
 <chapter title="Coming soon!" collapsible="true">
     <p>
+      [placeholder]
     </p>
 </chapter>
 

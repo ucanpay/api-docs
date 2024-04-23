@@ -37,15 +37,11 @@ Access our forums at <a href="https://forums.ucanpay.ca">forums.ucanpay.ca</a> t
 Explore our extensive range of developer resources to help you get the most out of your UCanPay integration.
 
 <chapter title="API Documentation" collapsible="true">
-    <p>
-Comprehensive documentation on how to use our API is available at <a href="https://ucanpay.ca/docs/api">ucanpay.ca/docs/api</a>.
-    </p>
+    <p>Comprehensive documentation on how to use our API is available at <a href="https://ucanpay.ca/docs/api">ucanpay.ca/docs/api</a>.</p>
 </chapter>
 
 <chapter title="SDKs and Libraries" collapsible="true">
-    <p>
-Check out our SDKs for different programming languages to simplify your development process. Visit <a href="https://ucanpay.ca/docs/sdk">ucanpay.ca/docs/sdk</a> for more information.
-    </p>
+    <p>Check out our SDKs for different programming languages to simplify your development process. Visit <a href="https://ucanpay.ca/docs/sdk">ucanpay.ca/docs/sdk</a> for more information.</p>
 </chapter>
 
 ## Social Media
