@@ -1,0 +1,2425 @@
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+接入介绍
+UCanPay Public API 为客户提供了一个 Restful JSON API 与 UCanPay 网络应用程序及手机客户端应用程序的一整套支付解决方案。终端用户通过其与UCanPay绑定的银行卡，UCanPay余额向商户完成支付的动作。它快速、安全且可靠。
+
+开发前的准备工作
+第三方商户在进行整合开发前，需要联系 UCanPay 客户服务人员，进行商户基本信息的录入，及公钥与私钥的配置工作。
+
+Updated over 1 year ago
+
+签名算法
+Did this page help you?
+TABLE OF CONTENTS
+开发前的准备工作
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+签名算法
+Step one
+设所有发送或者接收到的数据为集合M，将集合M内非空参数值的参数按照参数名ASCII码从小到大排序（字典序），使用URL键值对的格式（即key1=value1&key2=value2…）拼接成字符串stringA。
+
+Step Two
+使用私钥对stringA进行签名。
+
+Sample Code
+Java
+
+public static String signByPrivateKey(String data, String privateKey) {
+        byte[] signed = null;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(ENCODE_ALGORITHM);
+            messageDigest.update(data.getBytes(StandardCharsets.UTF_8));
+            byte[] hashData = messageDigest.digest();
+            PKCS8EncodedKeySpec priPKCS8 = new PKCS8EncodedKeySpec(Base64.decodeBase64(privateKey));
+            KeyFactory keyf = KeyFactory.getInstance(ALGORITHOM);
+            PrivateKey priKey = keyf.generatePrivate(priPKCS8);
+            Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
+            signature.initSign(priKey);
+            signature.update(hashData);
+            signed = signature.sign();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Base64.encodeBase64String(signed);
+    }
+Updated over 1 year ago
+
+接入介绍
+Integration introduction
+Did this page help you?
+TABLE OF CONTENTS
+Step one
+Step Two
+Sample Code
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+Integration introduction
+UCanPay Public API provides merchants with a Restful JSON API and a complete set of payment solutions for UCanPay web application and mobile device application. The end customers complete the payments to the merchants through the bank cards saved with UCanPay and/or their UCanPay e-wallet balances. It's fast, safe and reliable.
+
+Preparation before development
+Before the integration and development by third-party merchants, please contact UCanPay customer service personnel to provide the basic information of the merchant and configure the public and private keys.
+
+Updated over 1 year ago
+
+签名算法
+Signature Algorithm
+Did this page help you?
+TABLE OF CONTENTS
+Preparation before development
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+Signature Algorithm
+Step one
+Set all sent or received data as set M, sort the parameters of non-null parameter values in set M according to the parameter name ASCII code from smallest to largest (lexicographical order), and use the URL key-value pair format (ie key1=value1&key2=value2 ...) to concatenate into string “stringA.”
+
+Step Two
+Sign stringA with the private key.
+
+Sample Code
+Java
+
+public static String signByPrivateKey(String data, String privateKey) {
+        byte[] signed = null;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(ENCODE_ALGORITHM);
+            messageDigest.update(data.getBytes(StandardCharsets.UTF_8));
+            byte[] hashData = messageDigest.digest();
+            PKCS8EncodedKeySpec priPKCS8 = new PKCS8EncodedKeySpec(Base64.decodeBase64(privateKey));
+            KeyFactory keyf = KeyFactory.getInstance(ALGORITHOM);
+            PrivateKey priKey = keyf.generatePrivate(priPKCS8);
+            Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
+            signature.initSign(priKey);
+            signature.update(hashData);
+            signed = signature.sign();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Base64.encodeBase64String(signed);
+    }
+Updated over 1 year ago
+
+Integration introduction
+统一下单
+Did this page help you?
+TABLE OF CONTENTS
+Step one
+Step Two
+Sample Code
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+统一下单
+📘
+应用场景
+
+除付款码支付场景以外，商户系统先调用该接口在UCANPAY支付服务后台生成预支付交易单，返回正确的预支付交易会话标识后再按Native、H5等不同场景生成交易串调起支付。
+
+接口链接
+URL: https://api.ucanpay.ca/payment/unifiedorder
+
+方法: POST
+
+841
+Request
+Response
+
+{
+    "subject": "coffee",
+    "sign": "cD+L65u/UNRX+y2uUjgnAbgwGmETu67hEhmZ6+h/aHpNertHbrJvWjpecVTMqeap2qX6KJYF4587ZNXFvAC02ZSlG+aWpU0o/IeRLKLhTL9Biv2U2w7OAknXDcV3GNsaObhNh272IYdup8ri4Mj3BKl8pO8rKPrp9tRWlLf42VY=",
+    "body": "coffee",
+    "nonceStr": "1yFc0NDHF3QdNxJjFkTMX9lKXdC7N737",
+    "deviceNo": "device002",
+    "totalAmt": 1,
+    "merchantId": "2000000010",
+    "sceneType": "JSAPI",
+    "outTradeNo": "339483424962248704",
+    "signType": "RSA",
+    "currency": "CAD",
+    "notifyUrl": "http://abccompany.com/ucpay/pay.php"
+}
+请求参数
+名称
+变量名	必填	类型	示例	
+说明
+交易标题	subject	是	String(30)	coffee	交易标题
+注意：不可使用特殊字符，如 /，=，& 等。
+签名	sign	是	String(256)		RSA/MD5签名
+商品描述	body	是	String(64)	coffee	商品或支付订单简要描述
+注意：不可使用特殊字符，如 /，=，& 等。
+随机字符串	nonceStr	是	string(32)	5K8264ILTKCH16CQ2502SI8	随机字符串，不长于32位
+设备号	deviceNo	否	string(32)	device002	商户设备号，自定义
+总金额	totalAmt	是	Int	888	订单总金额，单位为分，只能为整数
+商户号	merchantId	是	string(32)	20000010	UCANPAY分配商户号
+交易类型	sceneType	是	string(16)	JSAPI	JSAPI -JSAPI支付
+NATIVE -Native支付
+商户订单号	outTradeNo	是	string(32)	12177525012033233368018	商户系统内部订单号，只能是数字、大小写字母 且在同一个商户号下唯一
+签名方式	signType	是	String(64)	RSA	RSA/MD5
+货币类型	currency	是	string(16)	CAD	符合ISO 4217标准的三位字母代码，默认加币：CAD
+支付结果通知URL	notifyUrl	是	String(64)	http://abccompany.com/ucpay/pay.php	
+返回结果
+名称
+参数	必填	类型	示例	说明
+返回状态码	code	是	int	0	0（成功）或非0
+此字段是通信标识，非交易标识，交易是否成功需要查看tradeStatus来判断
+返回信息	msg	否	String(128)	SUCCESS	返回信息，如非空，为错误原因
+签名失败
+返回报文	data	否	JSON		返回报文
+JSON字符串格式
+下单时间	tranTime	是	string(32)	2021-01-29T03:55:56	yyyy-MM-ddTHH:mm:ss
+总金额	totalAmt	是	int	1	订单总金额，单位为分，只能为整数
+商户号	merchantId	是	string(32)	20000010	UCANPAY分配商户号
+商户订单号	outTradeNo	是	String(32)	339483424962248704	商户系统内部订单号，只能是数字、大小写字母 且在同一个商户号下唯一
+签名值	sign	是	string(256)	12177525012014070
+33233368018	RSA/MD5签名值
+签名类型	signType	是	String(16)	RSA	RSA/MD5
+Ucanpay支付订单号	ucpOrderNo	是	string(20)	377654578511872	第三方下单完成后Ucanpay侧返回的支付订单号，用于统一支付接口里的支付订单号完成支付
+随机字符	nonceStr	是	string(32)	5K8264ILTKCH16CQ25S	随机字符串，不长于32位
+时间戳	timestamp	是	string(32)	2021-01-29T03:55:56Z	操作时间，RFC 3339格式
+错误代码
+名称	描述	原因	解决方案
+INVALID_REQUEST	参数错误	参数格式有误或者未按规则上传	订单重入时，要求参数值与原请求一致，请确认参数问题
+NOAUTH	商户无此接口权限	商户未开通此接口权限	请商户前往申请此接口权限
+ORDERPAID	商户订单已支付	商户订单已支付，无需重复操作	商户订单已支付，无需更多操作
+ORDERCLOSED	订单已关闭	当前订单已关闭，无法支付	当前订单已关闭，请重新下单
+SYSTEMERROR	系统错误	系统超时	系统异常，请用相同参数重新调用
+LACK_PARAMS	缺少参数	缺少必要的请求参数	请检查参数是否齐全
+OUT_TRADE_NO_USED	商户订单号重复	同一笔交易不能多次提交	请核实商户订单号是否重复提交
+SIGNERROR	签名错误	参数签名结果不正确	请检查签名参数和方法是否都符合签名算法要求
+REQUIRE_POST_METHOD	请使用post方法	未使用post传递参数	请检查请求参数是否通过post方法提交
+POST_DATA_EMPTY	post数据为空	post数据不能为空	请检查post数据是否为空
+NOT_UTF8	编码格式错误	未使用指定编码格式	请使用UTF-8编码格式
+Updated over 1 year ago
+
+Signature Algorithm
+查询订单
+Did this page help you?
+TABLE OF CONTENTS
+接口链接
+请求参数
+返回结果
+错误代码
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+查询订单
+📘
+应用场景
+
+该接口提供所有ucanpay支付订单的查询，商户可以通过该接口主动查询订单状态，完成下一步的业务逻辑。
+需要调用查询接口的情况：
+
+当商户后台、网络、服务器等出现异常，商户系统最终未接收到支付通知；
+调用支付接口后，返回系统错误或未知交易状态情况；
+调用关闭订单或撤销订单API之前，需确认支付状态；
+521
+接口链接
+URL: https://api.ucanpay.ca/payment/orderquery
+
+方法: POST
+
+Request
+Response
+
+{
+    "sign": "Eg3y/fFEQ+XQwNU3cwusd9CXdCLDD220tebhlTDKqfPni3csJ7SDScTTm1OsjH3b8CNCEo0JU6oW8JImyAzPT74WX+R5m5EDVxAIR+qgJbnZGdT8fXyLIVfnha+U0djHq0iU8AQ59WX0zbU8AsIat8zSaCBxQ05FsLzibjRfgKI=",
+    "nonceStr": "5K8264ILTKCH16CQ2502SI8",
+    "merchantId": "2100000088",
+    "outTradeNo": "497398025770106880",
+    "signType": "RSA",
+    "ucpOrderNo": "378251620909056"
+}
+请求参数
+名称
+变量名	必填	类型	示例	说明
+签名值	sign	是	String(256)		RSA/MD5签名值
+随机字符串	nonceStr	是	string(32)	5K8264ILTKCH16CQ2502SI8	随机字符串，不长于32位
+商户号	merchantId	是	string(32)	20000010	商户号
+商户订单号	outTradeNo	是	String(32)	432432432	第三方系统内部订单号，要求只能是数字、大小写字母 且在同一个商户号下唯一
+签名方式	signType	是	String(64)	RSA	RSA（默认值）/MD5
+Ucanpay支付订单号	ucpOrderNo	是	String(20)	377654578511872	第三方下单完成后Ucanpay侧返回的支付订单号
+返回结果
+名称
+变量名	必填	类型	示例	说明
+返回状态码	code	是	int	0	0或非0
+此字段是通信标识，非交易标识，交易是否成功需要查看tradeStatus来判断
+返回信息	msg	否	String(128)	SUCCESS	返回信息，如非空，为错误原因
+签名失败
+返回报文	data	否	JSON		返回报文
+JSON字符串格式
+下单时间	tranTime	是	string(32)	2021-01-29T03:55:56Z	下单时间，RFC 3339格式
+总金额	totalAmt	是	string(32)	188	订单金额
+商户订单号	outTradeNo	是	string(32)	WP20110212912	商户订单号
+订单状态	tradeStatus	是	string(32)	SUCCESS	SUCCESS—支付成功
+REFUND—转入退款
+NOTPAY—未支付
+CLOSED—已关闭
+REVOKED—已撤销
+USERPAYING—用户支付中
+PAYERROR—支付失败
+签名值	sign	是	String(256)	KnHmTqAX3MoEwvwvl5D	验证签名
+签名类型	signType	是	String	RSA	RSA/MD5
+Ucanpay支付订单号	ucpOrderNo	是	string(20)	2020013467007045764	Ucanpay支付订单号
+随机字符	nonceStr	是	string(32)	5K8264ILTKCH16CQ25S	随机字符串，不长于32位
+时间戳	timestamp	是	string(32)	2021-01-29T03:55:56Z	操作时间，RFC 3339格式
+错误代码
+名称	描述	原因	解决方案
+ORDERNOTEXIST	此交易订单号不存在	查询系统中不存在此交易订单号	该API只能查提交支付交易返回成功的订单，请商户检查需要查询的订单号是否正确
+SYSTEMERROR	系统错误	后台系统返回错误	系统异常，请再调用发起查询
+Updated over 1 year ago
+
+统一下单
+关闭订单
+Did this page help you?
+TABLE OF CONTENTS
+接口链接
+请求参数
+返回结果
+错误代码
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+关闭订单
+📘
+应用场景
+
+以下情况需要调用关单接口：商户订单支付失败需要生成新单号重新发起支付，要对原订单号调用关单，避免重复支付；系统下单后，用户支付超时，系统不再受理，避免用户继续，请调用关单接口。
+
+521
+接口链接
+URL: https://api.ucanpay.ca/payment/closeorder
+
+方法: POST
+
+Request
+Response
+
+{
+    "merchantId": "20000010",
+    "nonceStr": "5K8264ILTKCH16CQ2502SI8",
+    "sign": "cD+L65u/UNRX+y2uUjgnAbgwGmETu67hEhmZ6+h/aHpNertHbrJvWjpecVTMqeap2qX6KJYF4587ZNXFvAC02ZSlG+aWpU0o/IeRLKLhTL9Biv2U2w7OAknXDcV3GNsaObhNh272IYdup8ri4Mj3BKl8pO8rKPrp9tRWlLf42VY=",
+    "signType": "RSA",
+    "outTradeNo":"12177525012033233368018",
+    "ucpOrderNo": "378251620909056"
+}
+请求参数
+名称
+变量名	必填	示例	类型	说明
+商户号	merchantId	是	20000010	string(32)	UCANPAY分配商户号
+随机字符串	nonceStr	是	5K8264ILTKCH16CQ2502SI8	string(32)	随机字符串，不长于32位
+签名	sign	是	FDSF24324	String(256)	RSA/MD5签名
+签名方式	signType	是	RSA	String(64)	RSA/MD5
+商户订单号	outTradeNo	是	12177525012033233368018	string(32)	商户系统内部订单号，要求32个字符内，只能是数字、大小写字母 且在同一个商户号下唯一
+Ucanpay支付订单号	ucpOrderNo	是	377654578511872	String(20)	第三方下单完成后Ucanpay侧返回的支付订单号，用于统一支付接口里的支付订单号完成支付
+返回结果
+名称
+变量名	必填	类型	示例	说明
+返回状态码	code	是	int	0	0或非0
+此字段是通信标识，非交易标识，交易是否成功需要查看tradeStatus来判断
+返回信息	msg	否	String(128)	SUCCESS	返回信息，如非空，为错误原因，如签名失败
+返回报文	data	否			返回报文
+JSON字符串格式
+商户号	merchantId	是	string(32)	20000010	UCANPAY分配商户号
+随机字符	nonceStr	是	string(32)	5K8264ILTKCH16CQ25S	随机字符串，不长于32位
+签名值	sign	是	String(256)	KnHmTqAX3MoEwvwvl5DTAxzo	RSA/MD5签名值
+签名类型	signType	是	String	RSA	RSA/MD5
+商户单号	outTradeNo	是	string(32)	12177525012014070
+33233368018	商户系统内部订单号，要求32个字符内，只能是数字、大小写字母 且在同一个商户号下唯一
+交易状态	tradeStatus	是	String(16)	CLOSED	CLOSED—已关闭
+Ucanpay支付订单号	ucpOrderNo	是	String(20)	377654578511872	
+时间戳	timestamp	是	string(32)	2021-01-29T03:55:56Z	操作时间，RFC 3339格式
+错误代码
+名称	描述	原因	解决方案
+ORDERPAID	订单已支付	订单已支付，不能发起关单	订单已支付，不能发起关单，请当作已支付的正常交易
+SYSTEMERROR	系统错误	系统错误	系统异常，请重新调用该API
+ORDERCLOSED	订单已关闭	订单已关闭，无法重复关闭	订单已关闭，无需继续调用
+SIGNERROR	签名错误	参数签名结果不正确	请检查签名参数和方法是否都符合签名算法要求
+REQUIRE_POST_METHOD	请使用post方法	未使用post传递参数	请检查请求参数是否通过post方法提交
+Updated over 1 year ago
+
+查询订单
+撤销订单
+Did this page help you?
+TABLE OF CONTENTS
+接口链接
+请求参数
+返回结果
+错误代码
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+撤销订单
+📘
+应用场景
+
+支付交易返回失败或支付系统超时，调用该接口撤销交易。如果此订单用户支付失败，UCANPAY支付系统会将此订单关闭；如果用户支付成功，Ucanpay支付系统会将此订单资金退还给用户。
+注意：7天以内的交易单可调用撤销，其他正常支付的单如需实现相同功能请调用申请退款API。提交支付交易后调用【查询订单API】，没有明确的支付结果再调用【撤销订单API】。
+调用支付接口后请勿立即调用撤销订单API，建议支付后至少15s后再调用撤销订单接口.
+
+534
+接口链接
+URL: https://api.ucanpay.ca/payment/reverse
+
+方法: POST
+
+Request
+Response
+
+{
+    "merchantId": "20000010",
+    "nonceStr": "5K8264ILTKCH16CQ2502SI8",
+    "sign": "205075981821837313",
+    "signType": "RSA",
+    "ucpOrderNo": "2020013467007045764",
+    "outTradeNo":"12177525012033233368018",
+}
+请求参数
+名称
+变量名	必填	类型	示例	说明
+商户号	merchantId	是	string(32)	20000010	UCANPAY分配商户号
+随机字符串	nonceStr	是	string(32)	5K8264ILTKCH16CQ2502SI8	随机字符串，不长于32位
+签名	sign	是	String(256)	205075981821837313	RSA/MD5签名
+签名方式	signType	是	String(64)	RSA	RSA/MD5
+ucanpay订单号	ucpOrderNo	是	String(32)	2020013467007045764	ucanpay订单号，优先使用
+商户订单号	outTradeNo	是	String(64)	12177525012033233368018	商户系统内部订单号，要求32个字符内，只能是数字、大小写字母 且在同一个商户号下唯一
+返回结果
+名称
+变量名	必填	类型	示例	说明
+返回状态码	code	是	int	0	0或非0
+此字段是通信标识，非交易标识，交易是否成功需要查看tradeStatus来判断
+返回信息	msg	否	String(128)	SUCCESS	返回信息，如非空，为错误原因
+签名失败
+返回报文	data	否			返回报文
+JSON字符串格式
+商户号	merchantId	是	string(32)	20000010	UCANPAY分配商户号
+随机字符	nonceStr	是	string(32)	5K8264ILTKCH16CQ25S	随机字符串，不长于32位
+签名	sign	是	String(256)	205075981821837313	RSA/MD5签名
+签名类型	signType	是	String(64)	RSA	RSA/MD5
+ucanpay订单号	ucpOrderNo	是	String(32)	2020013467007045764	
+商户单号	outTradeNo	是	string(32)	12177525012014070
+33233368018	商户系统内部订单号，要求32个字符内，只能是数字、大小写字母 且在同一个商户号下唯一
+交易类型	tradeStatus	是	String(16)	REVOKED	REVOKED—已撤销
+时间戳	timestamp	是	string(32)		
+错误代码
+名称	描述	原因	解决方案
+ORDERPAID	订单已支付	订单已支付，不能发起关单	订单已支付，不能发起关单，请当作已支付的正常交易
+SYSTEMERROR	系统错误	系统错误	系统异常，请重新调用该API
+ORDERCLOSED	订单已关闭	订单已关闭，无法重复关闭	订单已关闭，无需继续调用
+SIGNERROR	签名错误	参数签名结果不正确	请检查签名参数和方法是否都符合签名算法要求
+REQUIRE_POST_METHOD	请使用post方法	未使用post传递参数	请检查请求参数是否通过post方法提交
+INVALID_REQ_TOO_MUCH	无效请求过多	连续错误请求数过多被系统短暂屏蔽	请检查业务是否正常，确认业务正常后请在1分钟后再来重试
+ERROR	业务错误	申请撤销业务发生错误	该错误都会返回具体的错误原因，请根据实际返回做相应处理。
+NOTENOUGH	余额不足	商户可用退款余额不足	此状态代表退款申请失败，商户可根据具体的错误提示做相应的处理。
+TRADE_OVERDUE	订单已经超过撤销期限	订单已经超过可退款的最大期限(支付后一年内可退款)	请选择其他方式自行退款
+Updated over 1 year ago
+
+关闭订单
+支付结果通知
+Did this page help you?
+TABLE OF CONTENTS
+接口链接
+请求参数
+返回结果
+错误代码
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+支付结果通知
+📘
+应用场景
+
+支付完成后，Ucanpay平台会把相关支付结果发送给商户，商户需要接收处理，并按文档规范返回应答.
+
+注意:
+1、同样的通知可能会多次发送给商户系统。商户系统必须能够正确处理重复的通知。
+2、后台通知交互时，如果Ucanpay收到商户的应答不符合规范或超时，会判定本次通知失败，重新发送通知，直到成功为止（在通知一直不成功的情况下，总共会发起多次通知，通知频率为15s/15s/....），但不保证通知最终一定能成功。
+3、在订单状态不明或者没有收到支付结果通知的情况下，建议商户主动调用【查询订单API】确认订单状态。
+
+特别提醒:
+1、商户系统对于支付结果通知的内容一定要做签名验证,并校验返回的订单金额是否与商户侧的订单金额一致，防止数据泄漏导致出现“假通知”，造成资金损失。
+2、当收到通知进行处理时，首先检查对应业务数据的状态，判断该通知是否已经处理过，如果没有处理过再进行处理，如果处理过直接返回结果成功。在对业务数据进行状态检查和处理之前，要采用数据锁进行并发控制，以避免出现并发问题.
+
+📘
+接口链接
+
+该链接是通过【统一下单API】中提交的参数notifyUrl设置,如果链接无法访问,商户将无法接收到ucanpay通知。 通知url必须为直接可访问的url，不能携带参数。
+示例：notifyUrl：“https://abcompany.com/ucpay/pay.php”
+
+521
+示例
+Request
+Response
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "merchantId": "2000000010",
+        "deviceNo": "WP20110212912",
+        "nonceStr": "5K8264ILTKCH16CQ25S",
+        "sign": "KnHmTqAX3MoEwvwvl5DTAxzo/H+5nqrGUP9CDGY3B9eoXpG1KOJ35KJ5mHCHVjCHkHolQIOVv5qaXZiEt7SeQsI1MVaq5+4qWWn7lmrEcwE4GqiIoP9FR/R1KLVZvULnoLWu0ivvFGwQKQOz0x7pmeGD2mjdCOm2xHlJHzETVBc=",          
+        "currency": "CAD",
+        "sceneType": "JSAPI",
+        "totalAmt": 1,
+        "ucpOrderNo":"563465342654643",
+        "outTradeNo": "339483424962248704",
+        "tradeStatus": "SUCCESS",
+        "signType": "RSA",
+        "body": "商品描述",
+        "timeEnd": "2021-01-29T03:55:56"
+    },
+    "timestamp": "2021-01-29T03:56:21Z"
+}
+通知参数
+名称
+变量名	必填	类型	示例	说明
+返回状态码	code	是	int	0	0或非0,此字段是通信标识，非交易标识，交易是否成功需要查看tradeStatus来判断
+返回信息	msg	否	String(128)	SUCCESS	返回信息，如非空，为错误原因
+签名失败
+返回报文	data	否	JSON		返回报文
+JSON字符串格式
+商户号	merchantId	是	string(32)	20000010	UCANPAY分配商户号
+设备号	deviceNo	是	string(32)	WP20110212912	设备号
+随机字符	nonceStr	是	string(32)	5K8264ILTKCH16CQ25S	随机字符串，不长于32位
+签名	sign	是	String(256)	KnHmTqAX3MoEwvwvl5DTAxzo	
+货币类型	currency	是	string(16)	CAD	符合ISO 4217标准的三位字母代码,默认加币:CAD
+交易类型	sceneType	是	String(16)	JSAPI	调用接口提交的交易类型，取值如下：JSAPI，NATIVE,H5支付固定传MWEB
+总金额	totalAmt	是	Int	888	订单总金额，单位为分，只能为整数
+交易单号	ucpOrderNo	是	String(32)	12177525012033233368018	Ucanpay交易单号
+商户单号	outTradeNo	是	String(16)	1217752501201407033233368018	Ucanpay侧返回的支付订单号
+交易状态	tradeStatus	是	String(16)	SUCCESS	SUCCESS—支付成功
+REFUND—转入退款
+NOTPAY—未支付
+CLOSED—已关闭
+REVOKED—已撤销
+USERPAYING—用户支付中
+PAYERROR—支付失败
+签名类型	signType	是	String(16)	RSA	RSA / MD5
+商品描述	body	是	String(64)	coffee	商品或支付订单简要描述
+支付完成时间	timeEnd	是	String(32)	20091225091010	格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010
+时间戳	timestamp	是	String(32)	2021-01-29T03:55:56	RFC 3339格式
+商户返回结果
+名称
+变量名	必填	类型	示例值	描述
+返回状态码	return_code	是	String(16)	SUCCESS	SUCCESS/FAIL
+SUCCESS表示商户接收通知成功并校验成功
+返回信息	return_msg	否	String(128)	OK	返回信息，如非空，为错误原因：
+签名失败
+参数格式校验错误
+Updated over 1 year ago
+
+撤销订单
+退款申请
+Did this page help you?
+TABLE OF CONTENTS
+示例
+通知参数
+商户返回结果
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+退款申请
+📘
+应用场景
+
+当交易发生之后一段时间内，由于买家或者卖家的原因需要退款时，卖家可以通过退款接口将支付款退还给买家，Ucanpay支付将在收到退款请求并且验证成功之后，按照退款规则进行退款。
+注意：
+1、交易时间超过一年的订单无法提交退款；
+2、支付退款支持单笔交易分多次退款，多次退款需要提交原支付订单的商户订单号和设置不同的退款单号。申请退款总金额不能超过订单金额。 一笔退款失败后重新提交，请不要更换退款单号，请使用原商户退款单号。
+3、每个支付订单的部分退款次数不能超过10次
+4、如果同一个用户有多笔退款，建议分不同批次进行退款，避免并发退款导致退款失败
+5、申请退款接口的返回仅代表业务的受理情况，具体退款是否成功，需要通过退款查询接口获取结果。
+
+534
+接口链接
+URL: https://api.ucanpay.ca/payment/refund
+
+方法: POST
+
+Request
+Response
+
+{
+    "merchantId": "20000010",
+    "nonceStr": "5K8264ILTKCH16CQ2502SI8",
+    "sign": "205075981821837313",
+    "signType": "RSA",
+    "ucpOrderNo": "2020013467007045764",
+    "outTradeNo":"12177525012033233368018",
+    "outRefundNo": "22117752501203323336818",
+    "totalAmt": 888,
+    "refundAmt": 888,
+    "refundDesc": "商品已售完",
+    "notifyUrl": "http://abccompany.com/ucpay/refund.php"
+}
+请求参数
+名称
+变量名	必填	示例	类型	说明
+商户号	merchantId	是	20000010	string(32)	UCANPAY分配商户号
+随机字符串	nonceStr	是	5K8264ILTKCH16CQ2502SI8	string(32)	随机字符串，不长于32位
+签名	sign	是	205075981821837313	String(256)	RSA/MD5签名
+签名方式	signType	是	RSA	String(64)	RSA/MD5
+Ucanpay支付订单号	ucpOrderNo	是	2020013467007045764	string(32)	UCanPay生成的订单号
+商户订单号	outTradeNo	是	12177525012033233368018	string(32)	商户系统内部订单号，要求32个字符内，只能是数字、大小写字母 且在同一个商户号下唯一
+商户退款单号	outRefundNo	是	2237752501203323456467	string(32)	商户系统内部退款订单号，要求32个字符内，只能是数字、大小写字母 且在同一个商户号下唯一
+订单金额	totalAmt	是	888	int	订单总金额，单位为分，只能为整数
+申请退款金额	refundAmt	是	888	int	订单总金额，单位为分，只能为整数
+退款原因	refundDesc	是	商品已售完	String(64)	若商户传入，会在下发给用户的退款消息中体现退款原因
+退款结果通知url	notifyUrl	是	http://ucanpay.com/ucpay/refund.php	String(64)	异步接收ucanpay支付退款结果通知的回调地址，通知URL必须为外网可访问的url，不允许带参数
+返回结果
+名称
+变量名	必填	类型	示例	说明
+返回状态码	code	是	int	0	0或非0,此字段是通信标识，非交易标识，交易是否成功需要查看tradeStatus来判断
+返回信息	msg	否	String(128)	SUCCESS	返回信息，如非空，为错误原因
+签名失败
+返回报文	data	否	JSON		返回报文
+JSON字符串格式
+商户号	merchantId	是	string(32)	20000010	UCANPAY分配商户号
+随机字符	nonceStr	是	string(32)	5K8264ILTKCH16CQ25S	随机字符串，不长于32位
+设备号	deviceNo	是	string(32)	WP20110212912	随机字符串，不长于32位
+签名	sign	是	String(256)	KnHmTqAX3MoEwvwvl5DTAxzo	
+签名类型	signType	是	String	RSA	RSA/MD5
+交易类型	sceneType	是	String(16)	JSAPI	调用接口提交的交易类型，取值如下：JSAPI，NATIVE,H5支付固定传MWEB
+总金额	totalAmt	是	Int	888	订单总金额，单位为分，只能为整数
+UCP支付订单号	ucpOrderNo	是	String(32)	12177525012033233368018	Ucanpay交易单号
+UCP退款单号	ucpRefundNo	是	String(32)	2020013467007045764	Ucanpay分配的退款单号
+商户订单号	outTradeNo	是	String(32)	2020013467007045764	商户测交易单号
+商户退款单号	outRefundNo	是	String(32)	12177525012033233368	商户测退款单号
+商品描述	body	是	String(64)	coffee	商品或支付订单简要描述
+退款金额	refundAmt	是	Int	12177525012014070
+888	商户系统内部订单号，要求只能是数字、大小写字母 且在同一个商户号下唯一
+货币类型	currency	是	String(16)	CAD	符合ISO 4217标准的三位字母代码,默认加币:CAD
+时间戳	timestamp	是	String(32)	2021-01-29T03:55:56Z	操作时间，RFC 3339格式
+错误代码
+名称	描述	原因	解决方案
+SYSTEMERROR	接口返回错误	系统超时等	请不要更换商户退款单号，请使用相同参数再次调用API。
+BIZERR_NEED_RETRY	退款业务流程错误，需要商户触发重试来解决	并发情况下，业务被拒绝，商户重试即可解决	请不要更换商户退款单号，请使用相同参数再次调用API。
+TRADE_OVERDUE	订单已经超过退款期限	订单已经超过可退款的最大期限(支付后一年内可退款)	请选择其他方式自行退款
+ERROR	业务错误	申请退款业务发生错误	该错误都会返回具体的错误原因，请根据实际返回做相应处理。
+USER_ACCOUNT_ABNORMAL	退款请求失败	用户账号注销	此状态代表退款申请失败，商户可自行处理退款。
+INVALID_REQ_TOO_MUCH	无效请求过多	连续错误请求数过多被系统短暂屏蔽	请检查业务是否正常，确认业务正常后请在1分钟后再来重试
+NOTENOUGH	余额不足	商户可用退款余额不足	此状态代表退款申请失败，商户可根据具体的错误提示做相应的处理。
+PARAM_ERROR	参数错误	请求参数未按指引进行填写	请求参数错误，请重新检查再调用退款申请
+REQUIRE_POST_METHOD	请使用post方法	未使用post传递参数	请检查请求参数是否通过post方法提交
+SIGNERROR	签名错误	参数签名结果不正确	请检查签名参数和方法是否都符合签名算法要求
+FREQUENCY_LIMITED	订单金额或退款金额与之前请求不一致，请核实后再试	订单金额或退款金额与之前请求不一致，请核实后再试	订单金额或退款金额与之前请求不一致，请核实后再试
+REFUND_FEE_MISMATCH	订单金额或退款金额与之前请求不一致，请核实后再试	订单金额或退款金额与之前请求不一致，请核实后再试	订单金额或退款金额与之前请求不一致，请核实后再试
+INVALID_REQUEST	请求参数符合参数格式，但不符合业务规则	此状态代表退款申请失败，商户可根据具体的错误提示做相应的处理。	此状态代表退款申请失败，商户可根据具体的错误提示做相应的处理。
+ORDER_NOT_READY	订单处理中，暂时无法退款，请稍后再试	订单处理中，暂时无法退款，请稍后再试	订单处理中，暂时无法退款，请稍后再试
+Updated over 1 year ago
+
+支付结果通知
+退款查询
+Did this page help you?
+TABLE OF CONTENTS
+接口链接
+请求参数
+返回结果
+错误代码
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+退款查询
+📘
+应用场景
+
+提交退款申请后，通过调用该接口查询退款状态。
+
+521
+接口链接
+URL: https://api.ucanpay.ca/payment/refundquery
+
+方法: POST
+
+Request
+Response
+
+{
+    "merchantId": "20000010",
+    "outTradeNo": "12177525012033233368018",
+    "ucpOrderNo": "12177525012033233368018",
+    "ucpRefundNo": "2020013467007045764",
+    "nonceStr": "5K8264ILTKCH16CQ2502SI8",
+    "outRefundNo": "12177525012033233368018",
+    "sign": "205075981821837313",
+    "signType": "RSA"
+}
+请求参数
+名称
+变量名	必填	示例值	类型	说明
+商户号	merchantId	是	20000010	string(32)	UCANPAY分配商户号
+商户交易单号	outTradeNo	是	2020013467007045764	string(32)	商户交易单号
+ucanpay订单号	ucpOrderNo	是	12177525012033233368018	string(32)	ucanpay订单号
+UCP退款单号	ucpRefundNo	是	12177525012033233368018	string(32)	ucanpay单号
+随机字符串	nonceStr	是	5K8264ILTKCH16CQ2502SI8	string(32)	随机字符串，不长于32位
+商户退款单号	outRefundNo	是	12177525012033233368018	string(32)	商户系统内部退款订单号，要求32个字符内，只能是数字、大小写字母 且在同一个商户号下唯一
+签名	sign	是	64ILTKCH16CQ2502SI	String(256)	RSA/MD5 签名
+签名方式	signType	是	RSA	String(64)	RSA（默认值）/MD5
+返回结果
+名称
+变量名	必填	类型	示例	说明
+返回状态码	code	是	int	0	0或非0
+此字段是通信标识，非交易标识，交易是否成功需要查看tradeStatus来判断
+返回信息	msg	否	String(128)	SUCCESS	返回信息，如非空，为错误原因
+签名失败
+返回报文	data	否	JSON		返回报文
+JSON字符串格式
+商户号	merchantId	是	string(32)	20000010	UCANPAY分配商户号
+设备号	deviceNo	是	string(32)	WP20110212912	随机字符串，不长于32位
+随机字符	nonceStr	是	string(32)	5K8264ILTKCH16CQ25S	随机字符串，不长于32位
+签名	sign	是	String(256)		RSA/MD5签名值
+签名类型	signType	是	String(32)	签名类型	RSA/MD5
+货币类型	currency	是	string(16)	CAD	符合ISO 4217标准的三位字母代码,默认加币:CAD
+总金额	totalAmt	是	Int	888	订单总金额，单位为分，只能为整数
+当前退款金额	refundAmt	是	Int	888	当前退款金额，单位为分，只能为整数
+当前退款时间	refundSuccesTime	是	String(32)	20091225091010	退款成功时间，当退款状态为退款成功时有返回
+格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010
+退款总金额	totalRefundAmt	是	Int	888	退款总金额，单位为分，只能为整数
+UCP支付订单号	ucpOrderNo	是	String(32)	12177525012033233368018	Ucanpay交易单号
+UCP退款单号	ucpRefundNo	是	String(32)	12177525012014070	Ucanpay侧交易单号
+商户单号	outTradeNo	是	string(32)	12177525012014070
+33233368018	商户系统内部订单号，要求32个字符内，只能是数字、大小写字母 且在同一个商户号下唯一
+商户退款单号	outRefundNo	是	string(32)	12177525012014070
+33233368018	商户系统内部退款单号，要求32个字符内，只能是数字、大小写字母 且在同一个商户号下唯一
+退款状态	refundStatus	是	String(14)	SUCCESS	SUCCESS—退款成功
+REFUNDCLOSE—退款关闭
+PROCESSING—退款处理中
+FAIL—退款失败
+时间戳	timestamp	是	String(32)	2021-01-29T03:55:56Z	RFC 3339格式
+错误代码
+名称
+描述	原因	解决方案
+SYSTEMERROR	接口返回错误	系统超时等	请不要更换商户退款单号，请使用相同参数再次调用API。
+REFUNDNOTEXIST	退款订单查询失败	订单号错误或订单状态不正确	请检查订单号是否有误以及订单状态是否正确，如：未支付、已支付未退款
+PARAM_ERROR	参数错误	请求参数未按指引进行填写	请求参数错误，请重新检查再调用退款申请
+REQUIRE_POST_METHOD	请使用post方法	未使用post传递参数	请检查请求参数是否通过post方法提交
+SIGNERROR	签名错误	参数签名结果不正确	请检查签名参数和方法是否都符合签名算法要求
+INVALID_REQUEST	请求参数符合参数格式，但不符合业务规则	此状态代表退款申请失败，商户可根据具体的错误提示做相应的处理。	此状态代表退款申请失败，商户可根据具体的错误提示做相应的处理。
+Updated over 1 year ago
+
+退款申请
+退款结果通知
+Did this page help you?
+TABLE OF CONTENTS
+接口链接
+请求参数
+返回结果
+错误代码
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+退款结果通知
+📘
+应用场景
+
+当商户申请的退款有结果后（退款状态为：退款成功、退款关闭、退款异常），Ucanpay会把相关结果发送给商户，商户需要接收处理，并返回应答。
+如果Ucanpay收到商户的应答不是成功或超时，平台认为通知失败，会通过一定的策略定期重新发起通知，尽可能提高通知的成功率，但不保证通知最终能成功（通知频率为15s/15s/......）。
+注意：同样的通知可能会多次发送给商户系统。商户系统必须能够正确处理重复的通知。
+推荐的做法是，当收到通知进行处理时，首先检查对应业务数据的状态，判断该通知是否已经处理过，如果没有处理过再进行处理，如果处理过直接返回结果成功。在对业务数据进行状态检查和处理之前，要采用数据锁进行并发控制，以避免并发问题。
+
+📘
+接口链接
+
+该链接是通过【申请退款API】中提交的参数notifyUrl设置，如果链接无法访问，商户将无法接收到退款通知。通知url必须为直接可访问的url，不能携带参数。
+示例：notifyUrl：“https://abcompany.com/ucpay/refund.php”
+
+521
+方法: POST
+
+Request
+Response
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "merchantId": "2000000010",
+        "deviceNo": "WP20110212912",
+        "nonceStr": "5K8264ILTKCH16CQ25S",
+        "sign": "KnHmTqAX3MoEwvwvl5DTAxzo/H+5nqrGUP9CDGY3B9eoXpG1KOJ35KJ5mHCHVjCHkHolQIOVv5qaXZiEt7SeQsI1MVaq5+4qWWn7lmrEcwE4GqiIoP9FR/R1KLVZvULnoLWu0ivvFGwQKQOz0x7pmeGD2mjdCOm2xHlJHzETVBc=",
+        "signType": "RSA",
+        "currency": "CAD",
+        "sceneType":"JSAPI",
+        "totalAmt":  888,
+        "ucpOrderNo": "2020013467007045764",
+        "body": "商品描述",
+        "outTradeNo":"12177525012033233368018",
+        "outRefundNo": "12177525012033233368018",
+        "ucpRefundNo": "2020013467007045764",
+        "refundStatus": "success",
+        "refundTime":"2021-01-29 03:55:10",
+        "refundAmt": 888
+    },
+    "timestamp": "2021-01-29 03:56:21"
+}
+通知参数
+名称
+变量名	必填	类型	示例	说明
+返回状态码	code	是	int	0	0或非0
+此字段是通信标识，非交易标识，交易是否成功需要查看tradeStatus来判断
+返回信息	msg	否	String(128)	SUCCESS	返回信息，如非空，为错误原因
+签名失败
+返回报文	data	否	JSON		返回报文
+JSON字符串格式
+商户号	merchantId	是	string(32)	20000010	UCANPAY分配商户号
+设备号	deviceNo	是	string(32)	WP20110212912	随机字符串，不长于32位
+随机字符	nonceStr	是	string(32)	5K8264ILTKCH16CQ25S	随机字符串，不长于32位
+签名	sign	是	String(256)	KnHmTqAX3MoEwvwvl5DTAxzo	RSA/MD5签名
+签名类型	signType	是	string(32)	RSA	RSA/MD5
+货币类型	currency	是	string(16)	CAD	符合ISO 4217标准的三位字母代码,默认加币:CAD
+交易类型	sceneType	是	String(16)	JSAPI	调用接口提交的交易类型，取值如下：JSAPI，NATIVE,H5支付固定传MWEB
+总金额	totalAmt	是	Int	888	订单总金额，单位为分，只能为整数
+交易单号	ucpOrderNo	是	String(32)	12177525012033233368018	Ucanpay交易单号
+商品描述	body	是	String(64)	coffee	商品或支付订单简要描述
+商户单号	outTradeNo	是	string(32)	12177525012014070
+33233368018	商户系统内部订单号，要求32个字符内，只能是数字、大小写字母 且在同一个商户号下唯一
+商户退款单号	outRefundNo	是	string(32)	12177525012033233368018	
+UCP退款单号	ucpRefundNo	是	string(32)	2020013467007045764	
+退款状态	refundStatus	是	String(16)	SUCCESS	SUCCESS—退款成功
+REFUNDCLOSE—退款关闭
+PROCESSING—退款处理中
+FAIL—退款失败
+退款时间	refundTime	是	String(32)	20091225091010	订单生成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010
+退款金额	refundAmt	是	int	2021-01-29 03:55:10	订单总金额，单位为分，只能为整数
+时间戳	timestamp	是	String(32)	888	操作时间，RFC 3339格式
+商户返回结果
+名称
+变量名	必填	类型	示例值	描述
+返回状态码	return_code	是	String(16)	SUCCESS	SUCCESS/FAIL
+SUCCESS表示商户接收通知成功并校验成功
+返回信息	return_msg	否	String(128)	OK	返回信息，如非空，为错误原因：
+签名失败
+参数格式校验错误
+Updated over 1 year ago
+
+退款查询
+Placing Unified Order
+Did this page help you?
+TABLE OF CONTENTS
+通知参数
+商户返回结果
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+Placing Unified Order
+📘
+Application scenarios
+
+In addition to the payment code payment scenario, the merchant system first calls this interface to generate a prepayment transaction order in the Ucanpay background services, returns the correct prepayment transaction session ID, and generates a transaction string according to different scenarios such as Native and H5 to initiate the payment transaction.
+
+interface link
+URL: https://api.ucanpay.ca/payment/unifiedorder
+
+method: POST
+
+841
+Request
+Response
+
+{
+    "subject": "coffee",
+    "sign": "cD+L65u/UNRX+y2uUjgnAbgwGmETu67hEhmZ6+h/aHpNertHbrJvWjpecVTMqeap2qX6KJYF4587ZNXFvAC02ZSlG+aWpU0o/IeRLKLhTL9Biv2U2w7OAknXDcV3GNsaObhNh272IYdup8ri4Mj3BKl8pO8rKPrp9tRWlLf42VY=",
+    "body": "coffee",
+    "nonceStr": "1yFc0NDHF3QdNxJjFkTMX9lKXdC7N737",
+    "deviceNo": "device002",
+    "totalAmt": 1,
+    "merchantId": "2000000010",
+    "sceneType": "JSAPI",
+    "outTradeNo": "339483424962248704",
+    "signType": "RSA",
+    "currency": "CAD",
+    "notifyUrl": "http://abccompany.com/ucpay/pay.php"
+}
+request parameters
+name
+parameters	mandatory	type	example	
+explanation
+transaction title	subject	Yes	String(30)	coffee	Note: Special characters such as /, =, & etc. cannot be used.
+signature	sign	Yes	String(256)		RSA/MD5 signature
+product description	body	Yes	String(64)	coffee	A brief description of the item or order
+Note: Special characters such as /, =, & etc. cannot be used.
+random string	nonceStr	Yes	string(32)	5K8264ILTKCH16CQ2502SI8	random string not longer than 32 characters
+device number	deviceNo	Yes	string(32)	device002	Merchant device number, custom
+total amount	totalAmt	Yes	Int	888	The total amount of the order, in cents, integers only
+merchant ID number	merchantId	Yes	string(32)	20000010	Ucanpay assigned merchant ID number
+transaction type	sceneType	Yes	string(16)	JSAPI	JSAPI -JSAPI payment
+NATIVE -Native payment
+merchant order number	outTradeNo	Yes	string(32)	12177525012033233368018	The internal order number in the merchant's system; can only be numbers, uppercase and lowercase letters and is unique
+signature type	signType	Yes	String(64)	RSA	RSA/MD5
+currency type	currency	Yes	string(16)	CAD	ISO 4217 compliant three-letter code
+default Canadian dollar: CAD
+payment result notification URL	notifyUrl	Yes	String(64)	http://abccompany.com/ucpay/pay.php	
+returned results
+name
+parameters	mandatory	type	example	explanation
+returned status code	code	yes	int	0	0 (success) or non-0
+This field is a communication indicator, not a transaction indicator. Check tradeStatus to determine whether a transaction is successful or not.
+returned messages	msg	yes	String(128)	signature failed	the returned message, if not null, is the cause of the failed transaction
+signature failure
+returned data	data	yes	JSON		JSON string format
+transaction time	tranTime	yes	string(32)	2021-01-29T03:55:56	yyyy-MM-ddTHH:mm:ss
+total amount	totalAmt	yes			
+merchant ID number	merchantId	yes	string(32)	20000010	Ucanpay assigned merchant ID number
+merchant order number	outTradeNo	yes	String(32)		
+signature	sign	yes	string(256)	12177525012014070
+33233368018	RSA/MD5 signature
+signature type	signType	yes	String(16)	RSA	RSA/MD5
+Ucanpay order number	ucpOrderNo	yes	string(20)	377654578511872	The payment order number returned by Ucanpay after the third-party order is complete;, it is used to complete the payment with an order number in the "unified payment" interface.
+random string	nonceStr	yes	string(32)	5K8264ILTKCH16CQ25S	random string not longer than 32 characters
+time stamp	timestamp	yes	string(32)	2021-01-29T03:55:56Z	Operation time in RFC 3339 format
+error codes
+name	description	reason	solution
+INVALID_REQUEST	Parameter error	The parameter format is incorrect or not uploaded according to the requirements	When an order is re-entered, the parameter value must be the same as the original request, please confirm the parameter
+NOAUTH	Merchant does not have permission for this interface	The merchant was not provided access to this interface	Please apply for permission
+ORDERPAID	Merchant order is already paid	Payment for this order is already complete; it is not necessary to repeat the operation.	Merchant order has been paid; no further action required.
+ORDERCLOSED	order closed	The current order is closed and cannot be paid	The current order has been closed, please place a new order
+SYSTEMERROR	system error	system timed out	The system is experiencing issues, please call again with the same parameters
+LACK_PARAMS	missing parameters	missing required parameters	Check whether the parameters are complete
+OUT_TRADE_NO_USED	merchant order number duplicated	the same transaction cannot be submitted multiple times	please confirm whether the merchant order number is submitted multiple times
+SIGNERROR	signature error	Incorrect signature parameter result	check whether the signature parameters and methods meet the requirements of the signature algorithm
+REQUIRE_POST_METHOD	Please use the "post" method	did not use "post" to transmit parameters	check whether the request parameters are submitted through the "post" method
+POST_DATA_EMPTY	post data is empty	post data cannot be empty	check whether the post data is empty
+NOT_UTF8	encoding format incorrect	the specified encoding format is not used	use UTF-8 encoding format
+Updated over 1 year ago
+
+退款结果通知
+Querying Orders
+Did this page help you?
+TABLE OF CONTENTS
+interface link
+request parameters
+returned results
+error codes
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+Querying Orders
+📘
+Application scenarios
+
+This interface enables the query of all Ucanpay payment orders, and merchants can actively query the order status through this interface to complete the next business logic steps.
+
+When you need to call the query interface:
+
+When there is an abnormality in the merchant's background, network, server, etc., the merchant's system does not receive the payment notification;
+After calling the payment interface, a system error or an “unknown” transaction status is returned;
+Call the “scan QR code payment” API and return the “in progress” payment status;
+need to confirm the payment status before calling the “closing order” or “canceling order” API;
+521
+interface link
+URL: https://api.ucanpay.ca/payment/orderquery
+
+method: POST
+
+Request
+Response
+
+{
+    "sign": "Eg3y/fFEQ+XQwNU3cwusd9CXdCLDD220tebhlTDKqfPni3csJ7SDScTTm1OsjH3b8CNCEo0JU6oW8JImyAzPT74WX+R5m5EDVxAIR+qgJbnZGdT8fXyLIVfnha+U0djHq0iU8AQ59WX0zbU8AsIat8zSaCBxQ05FsLzibjRfgKI=",
+    "nonceStr": "5K8264ILTKCH16CQ2502SI8",
+    "merchantId": "2100000088",
+    "outTradeNo": "497398025770106880",
+    "signType": "RSA",
+    "ucpOrderNo": "378251620909056"
+}
+request parameters
+name
+variable name	mandatory	type	example	explanation
+signature	sign	yes	String(256)		RSA/MD5 signature value
+random string	nonceStr	yes	string(32)	5K8264ILTKCH16CQ2502SI8	random string not longer than 32 characters
+merchant ID number	merchantId	yes	string(32)	20000010	merchant ID number
+merchant order number	outTradeNo	yes	String(32)	432432432	The internal order number in the merchant's system; can only be numbers, uppercase and lowercase letters and is unique.
+signature type	signType	yes	String(64)	RSA	RSA (default)/MD5
+Ucanpay order number	ucpOrderNo	yes	String(20)	377654578511872	The payment order number returned by Ucanpay after the third-party order is complete.
+returned results
+name
+variable	mandatory	type	example	explanation
+returned status code	code	yes	int	0	0 (success) or non-0
+This field is a communication indicator, not a transaction indicator. Check tradeStatus to determine whether a transaction is successful or not.
+returned messages	msg	no	String(128)	SUCCESS	the returned message, if not null, is the cause of the failed transaction
+signature failure
+returned message	data	no	JSON		JSON string format
+transaction time	tranTime	yes	string(32)	2021-01-29T03:55:56Z	order time in RFC 3339 format
+total amount	totalAmt	yes	string(32)	188	order amount
+merchant order number	outTradeNo	yes	string(32)	WP20110212912	merchant order number
+order status	tradeStatus	yes	string(32)	SUCCESS	SUCCESS—Successful payment
+REFUND—Refund transfer
+NOTPAY—Unpaid
+CLOSED—Closed
+REVOKED—Revoked
+USERPAYING—Payment in progress
+PAYERROR—Payment failed
+signature	sign	yes	String(256)	KnHmTqAX3MoEwvwvl5D	verify signature
+signature type	signType	yes	String	RSA	RSA/MD5
+Ucanpay order number	ucpOrderNo	yes	string(20)	2020013467007045764	Ucanpay order number
+random string	nonceStr	yes	string(32)	5K8264ILTKCH16CQ25S	random string not longer than 32 characters
+time stamp	timestamp	yes	string(32)	2021-01-29T03:55:56Z	operation time in RFC 3339 format
+error codes
+name	description	reason	solution
+ORDERNOTEXIST	order number does not exist	system query found this order number to not exist	This API can only check the orders that were successfully paid; please check whether the order number to be queried is correct.
+SYSTEMERROR	system error	backend system returned error	system is abnormal, please call interface again to initiate a query
+Updated over 1 year ago
+
+Placing Unified Order
+Closing Orders
+Did this page help you?
+TABLE OF CONTENTS
+interface link
+request parameters
+returned results
+error codes
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+Closing Orders
+📘
+Application scenarios
+
+In the following scenarios, the “closing orders” interface needs to be called: if payment is failed for a merchant order, a new order number must be generated to re-initiate the payment; “closing order” need to be called on the original order number to avoid duplicated payments; after the system generates an order, and the shopper payment is timed out, in order to stop processing the payment and prevent a shopper from continuing paying, please call the closing orders interface.
+
+521
+interface link
+URL: https://api.ucanpay.ca/payment/closeorder
+
+method: POST
+
+Request
+Response
+
+{
+    "merchantId": "20000010",
+    "nonceStr": "5K8264ILTKCH16CQ2502SI8",
+    "sign": "cD+L65u/UNRX+y2uUjgnAbgwGmETu67hEhmZ6+h/aHpNertHbrJvWjpecVTMqeap2qX6KJYF4587ZNXFvAC02ZSlG+aWpU0o/IeRLKLhTL9Biv2U2w7OAknXDcV3GNsaObhNh272IYdup8ri4Mj3BKl8pO8rKPrp9tRWlLf42VY=",
+    "signType": "RSA",
+    "outTradeNo":"12177525012033233368018",
+    "ucpOrderNo": "378251620909056"
+}
+request parameters
+name
+parameters	mandatory	example	type	explanation
+merchant ID number	merchantId	yes	20000010	string(32)	Ucanpay assigned merchant ID number
+random string	nonceStr	yes	5K8264ILTKCH16CQ2502SI8	string(32)	random string not longer than 32 characters
+signature	sign	yes	FDSF24324	String(256)	RSA/MD5 signature
+signature type	signType	yes	RSA	String(64)	RSA/MD5
+merchant order number	outTradeNo	yes	12177525012033233368018	string(32)	merchant system order number under 32 characters, can only be numbers, and uppercase and lowercase letters; must be unique in the merchant system
+Ucanpay order number	ucpOrderNo	yes	377654578511872	String(20)	The payment order number returned by Ucanpay after the third-party order is complete;, it is used to complete the payment with an order number in the "unified payment" interface.
+returned results
+name
+parameters	mandatory	type	example	explanation
+returned status code	code	yes	int	0	0 (success) or non-0
+This field is a communication indicator, not a transaction indicator. Check tradeStatus to determine whether a transaction is successful or not.
+returned messages	msg	yes	String(128)	SUCCESS	the returned message, if not null, is the cause of the failed transaction
+e.g. signature failure
+returned data	data	yes			JSON string format
+merchant ID number	merchantId	yes	string(32)	20000010	Ucanpay assigned merchant number
+random string	nonceStr	yes	string(32)	5K8264ILTKCH16CQ25S	random string not longer than 32 character
+signature	sign	yes	String(256)	KnHmTqAX3MoEwvwvl5DTAxzo	RSA/MD5 signature
+signature type	signType	yes	String	RSA	RSA/MD5
+merchant order number	outTradeNo	yes	string(32)	12177525012014070
+33233368018	The internal order number in the merchant's system; must be under 32 characters; can only be numbers, uppercase and lowercase letters and is unique
+returned status	tradeStatus	yes	String(16)	CLOSED	CLOSED—already closed
+Ucanpay order number	ucpOrderNo	yes	String(20)	377654578511872	
+time stamp	timestamp	yes	string(32)	2021-01-29T03:55:56Z	Operation time in RFC 3339 format
+error codes
+name	description	reason	solution
+ORDERPAID	Merchant order is already paid	Payment for this order is already complete; cannot intiate to close the order.	Payment for this order is already complete; cannot intiate to close the order. Please treat order as successfully paid.
+SYSTEMERROR	system error	system error	system abnormal, please call the API again
+ORDERCLOSED	order closed	The order has been closed and cannot be repeatedly closed	The order has been closed, no need to continue calling the API
+SIGNERROR	signature error	signature result parameter error	check whether the signature parameters and methods meet the requirements of the signature algorithm
+REQUIRE_POST_METHOD	please use post method	parameters were not transmitted using post	check whether the request parameters are submitted through the post method
+Updated over 1 year ago
+
+Querying Orders
+Cancelling Orders
+Did this page help you?
+TABLE OF CONTENTS
+interface link
+request parameters
+returned results
+error codes
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+Cancelling Orders
+📘
+Application scenarios
+
+If the payment transaction fails or the system times out, call this interface to cancel the transaction. If the shopper fails to pay for this order, Ucanpay system will close the order; if the shopper successfully completes payment, Ucanpay payment system will return the funds to the user.
+Note: A transaction can be cancelled within 7 days from the date of the transaction. For orders that are successfully paid but need to achieve the same result, please call the “applying for refund” API. After submitting the payment transaction, call the “Querying Orders” API, and call the “Cancelling Orders” API if there is no clear payment result.
+Do not call the “Cancelling orders” API immediately after calling the payment interface. It is recommended to call the Cancelling order interface at least 15s after the payment is completed.
+
+534
+interfact link
+URL: https://api.ucanpay.ca/payment/reverse
+
+method: POST
+
+Request
+Response
+
+{
+    "merchantId": "20000010",
+    "nonceStr": "5K8264ILTKCH16CQ2502SI8",
+    "sign": "205075981821837313",
+    "signType": "RSA",
+    "ucpOrderNo": "2020013467007045764",
+    "outTradeNo":"12177525012033233368018",
+}
+request parameters
+name
+parameter	mandatory	type	example	explanation
+merchant ID number	merchantId	yes	string(32)	20000010	Ucanpay assigned merchant number
+random string	nonceStr	yes	string(32)	5K8264ILTKCH16CQ2502SI8	random string not longer than 32 characters
+signature	sign	yes	String(256)	205075981821837313	RSA/MD5 signature
+transaction type	signType	yes	String(64)	RSA	RSA/MD5
+ucanpay order number	ucpOrderNo	yes	String(32)	2020013467007045764	Ucanpay order number; *use with priority
+merchant order number	outTradeNo	yes	String(64)	12177525012033233368018	merchant system order number under 32 characters, can only be numbers, and uppercase and lowercase letters; must be unique in the merchant system
+returned results
+name
+parameter	mandatory	type	example	explanation
+returned status code	code	yes	int	0	This field is a communication indicator, not a transaction indicator. Check tradeStatus to determine whether a transaction is successful or not.
+returned messages	msg	no	String(128)	SUCCESS	the returned message, if not null, is the cause of the failed transaction
+signature failure
+returned data	data	no			JSON string format
+merchant ID number	merchantId	yes	string(32)	20000010	Ucanpay assigned merchant ID number
+random string	nonceStr	yes	string(32)	5K8264ILTKCH16CQ25S	random string not longer than 32 characters
+signature	sign	yes	String(256)		RSA/MD5 signature
+signature type	signType	yes	String(64)	RSA	RSA/MD5
+merchant order number	outTradeNo	yes	string(32)	12177525012014070
+33233368018	merchant system order number under 32 characters, can only be numbers, and uppercase and lowercase letters; must be unique in the merchant system
+order status	tradeStatus	yes	String(16)	REVOKED	REVOKED—already revoked
+time stamp	timestamp	yes	string(32)		
+error codes
+name	description	reason	solution
+ORDERPAID	Merchant order is already paid	Payment for this order is already complete; cannot intiate to close the order.	Payment for this order is already complete; cannot intiate to close the order. Please treat order as successfully paid.
+SYSTEMERROR	system error	system error	system abnormal, please call the API again
+ORDERCLOSED	order closed	The order has been closed and cannot be repeatedly closed	The order has been closed, no need to continue calling the API
+SIGNERROR	signature error	signature result parameter error	check whether the signature parameters and methods meet the requirements of the signature algorithm
+REQUIRE_POST_METHOD	please use post method	parameters were not transmitted using post	check whether the request parameters are submitted through the post method
+INVALID_REQ_TOO_MUCH	too many invalid requests	too many consecutive invalid requests causing temporarily block by the system	Please check whether the system is normal. After confirming that the system is normal, try again in one minute.
+ERROR	system error	error occurred in the request to cancel the request	The specific error reason will be returned for this type of error. Please action accordingly.
+NOTENOUGH	insufficient balance	merchant has insufficient available balance to perform refund	This status indicates that the refund request has failed, and merchant shall action according to the specific error prompt.
+TRADE_OVERDUE	order has exceeded the cancellation period	order has exceeded the maximnum cancellation period (refundable within one year of payment)	merchant to refund using other methods
+Updated over 1 year ago
+
+Closing Orders
+Payment Result Notification
+Did this page help you?
+TABLE OF CONTENTS
+interfact link
+request parameters
+returned results
+error codes
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+Payment Result Notification
+📘
+Application scenarios
+
+After the payment is completed successfully, the Ucanpay system will send the relevant payment results and shopper information to the merchant in the form of a data stream. The merchant needs to receive and process the data and return the response in accordance with the specifications of this document.
+
+Note:
+
+The same notification may be sent to the merchant system multiple times. Merchant system must be able to properly handle duplicate notifications.
+When background notification is exchanged, if Ucanpay receives a merchant's response that does not meet the specifications or the response is timed out, it will determine that the notification is failed and resend the notification until it succeeds (if the notification continues to fail, multiple notifications will be initiated, the notification frequency is 15s, 15s, etc.), but there is no guarantee that the notification will eventually succeed.
+When the order status is “unknown” or the payment result notification has not been received, it is recommended that the merchant call the “Querying orders” API to confirm the order status.
+Special reminder:
+
+The merchant’s system must perform signature verification on the content of the payment result notification and verify whether the returned order amount is identical to the order amount on the merchant side, so as to prevent data leakage causing "false notification" and causing loss of funds.
+When a notification is received and being processed, first check the status of the corresponding business data to determine whether the notification has been processed. Only the ones that has not been processed, should be processed. If it has been processed, “success” status should be returned. Before checking business data status and processing a notification, data locks should be used for concurrency control to avoid data confusion caused by function reentrancy.
+📘
+Interface connection
+
+The link is set through the notifyUrl parameter submitted in the “Placing unified order” API. If the link cannot be accessed, the merchant will not receive Ucanpay notifications. The notification url must be a directly accessible url and cannot carry parameters.
+Example: notifyUrl: “https://abcompany.com/ucpay/pay.php”
+
+521
+example
+Request
+Response
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "merchantId": "2000000010",
+        "deviceNo": "WP20110212912",
+        "nonceStr": "5K8264ILTKCH16CQ25S",
+        "sign": "KnHmTqAX3MoEwvwvl5DTAxzo/H+5nqrGUP9CDGY3B9eoXpG1KOJ35KJ5mHCHVjCHkHolQIOVv5qaXZiEt7SeQsI1MVaq5+4qWWn7lmrEcwE4GqiIoP9FR/R1KLVZvULnoLWu0ivvFGwQKQOz0x7pmeGD2mjdCOm2xHlJHzETVBc=",          
+        "currency": "CAD",
+        "sceneType": "JSAPI",
+        "totalAmt": 1,
+        "ucpOrderNo":"563465342654643",
+        "outTradeNo": "339483424962248704",
+        "tradeStatus": "SUCCESS",
+        "signType": "RSA",
+        "body": "商品描述",
+        "timeEnd": "2021-01-29T03:55:56"
+    },
+    "timestamp": "2021-01-29T03:56:21Z"
+}
+notification parameters
+name
+parameter	mandatory	type	example	explanation
+returned status code	code	yes	int	0	0 (success) or non-0
+This field is a communication indicator, not a transaction indicator. Check tradeStatus to determine whether a transaction is successful or not.
+returned messages	msg	no	String(128)	SUCCESS	the returned message, if not null, is the cause of the failed transaction
+signature failure
+returned data	data	no	JSON		JSON string format
+merchant ID number	merchantId	yes	string(32)	20000010	Ucanpay assigned merchant ID number
+device number	deviceNo	yes	string(32)	WP20110212912	device number
+random string	nonceStr	yes	string(32)	5K8264ILTKCH16CQ25S	random string not longer than 32 characters
+signature	sign	yes	String(256)		
+currency type	currency	yes	string(16)	CAD	ISO 4217 compliant three-letter code
+default Canadian dollar: CAD
+transaction type	sceneType	yes	String(16)	JSAPI	interface submitted transaction type
+the values ​​are as follows: JSAPI, NATIVE, H5 payment fixed transmission MWEB
+total amount	totalAmt	yes	Int	888	The total amount of the order, in cents, integers only
+Ucanpay order number	ucpOrderNo	yes	String(32)	12177525012033233368018	Ucanpay payment order number
+merchant order number	outTradeNo	yes	String(16)	1217752501201407033233368018	
+order status	tradeStatus	yes	String(16)	SUCCESS	SUCCESS—Payment success
+REFUND—Refund transfer
+NOTPAY—Unpaid
+CLOSED—Closed
+REVOKED—Revoked
+USERPAYING—Payment in progress
+PAYERROR—Payment failed
+signature type	signType	yes			
+merchandise description	body	yes	String(64)	coffee	brief description of the item or payment order
+payment complete time	timeEnd	yes	String(32)	20091225091010	format is yyyyMMddHHmmss
+e.g. 20091225091010 represents 9:10:10 on December 25, 2009
+time stamp	timestamp	yes	String(32)		
+Merchant returned results
+name
+parameter	mandatory	type	example	explanation
+returned status code	return_code	yes	String(16)	SUCCESS	SUCCESS/FAIL
+SUCCESS means that the merchant receives the notification successfully and the verification is successful
+returned message	return_msg	no	String(128)	OK	the returned message, if not null, is the cause of the failed transaction:
+signature failure
+parameter format verification error
+Updated over 1 year ago
+
+Cancelling Orders
+Requesting Refund
+Did this page help you?
+TABLE OF CONTENTS
+example
+notification parameters
+Merchant returned results
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+Requesting Refund
+📘
+Application scenarios
+
+When a refund is required within a period of time after the transaction took place due to a request by the shopper or the merchant, the merchant can return the fund to the buyer through the refund interface. Ucanpay payment services will receive the refund request and verify the validity, then return the fund to the buyer's e-wallet account or to the original payment method according to the refund rules.
+
+Notice:
+
+Orders completed over a year ago cannot be refunded;
+Payment refund supports multiple refunds for a single transaction. For multiple refunds, you need to submit the merchant order number of the original order and set different refund order numbers. The total refund requested cannot exceed the original order amount. If a refund fails and is resubmitted, please do not change the refund order number, please use the original merchant refund order number.
+The number of partial refunds for each payment order cannot exceed 10.
+If there are multiple refunds to the same shopper, it is recommended to refund in different batches to avoid concurrent refunds causing refund failures.
+The information returned by the Requesting refund interface only represents the acceptance of the request. To determine whether a refund is successful, you need to obtain the result through the Querying refund interface.
+534
+interface link
+URL: https://api.ucanpay.ca/payment/refund
+
+method: POST
+
+Request
+Response
+
+{
+    "merchantId": "20000010",
+    "nonceStr": "5K8264ILTKCH16CQ2502SI8",
+    "sign": "205075981821837313",
+    "signType": "RSA",
+    "ucpOrderNo": "2020013467007045764",
+    "outTradeNo":"12177525012033233368018",
+    "outRefundNo": "22117752501203323336818",
+    "totalAmt": 888,
+    "refundAmt": 888,
+    "refundDesc": "商品已售完",
+    "notifyUrl": "http://abccompany.com/ucpay/refund.php"
+}
+request parameters
+name
+parameter	mandatory	example	type	explanation
+merchant ID number	merchantId	yes	20000010	string(32)	Ucanpay assigned merchant ID number
+random string	nonceStr	yes	5K8264ILTKCH16CQ2502SI8	string(32)	random string not longer than 32 characters
+signature	sign	yes	205075981821837313	String(256)	RSA/MD5 signature
+signature type	signType	yes	RSA	String(64)	RSA/MD5
+Ucanpay order number	ucpOrderNo	yes	2020013467007045764	string(32)	
+merchant order number	outTradeNo	yes	12177525012033233368018	string(32)	merchant system order number under 32 characters, can only be numbers, and uppercase and lowercase letters; must be unique in the merchant system
+merchant refund order number	outRefundNo	yes	2237752501203323456467	string(32)	merchant system refund order number under 32 characters, can only be numbers, and uppercase and lowercase letters; must be unique in the merchant system
+total order amount	totalAmt	yes	888	int	The total amount of the order, in cents, integers only
+requested refund amount	refundAmt	yes	888	int	The total amount of the order, in cents, integers only
+refund description	refundDesc	yes	merchandise is sold out	String(64)	If entered by merchant, the reason for the refund will be reflected in the refund message sent to the shopper
+refund result notification url	notifyUrl	yes	http://ucanpay.com/ucpay/refund.php	String(64)	The callback address for asynchronously receiving the Ucanpay refund result notification. The result notification URL must be a URL accessible from the external network with no parameters allowed.
+returned results
+name
+parameter	mandatory	type	example	explanation
+returned status code	code	yes	int	0	This field is a communication indicator, not a transaction indicator. Check tradeStatus to determine whether a transaction is successful or not.
+returned message	msg	否	String(128)	SUCCESS	the returned message, if not null, is the cause of the failed transaction
+signature failure
+returned data	data	否	JSON		JSON string format
+merchant ID number	merchantId	yes	string(32)	20000010	Ucanpay assigned merchant ID number
+random string	nonceStr	yes	string(32)	5K8264ILTKCH16CQ25S	random string not longer than 32 characters
+device number	deviceNo	yes	string(32)	WP20110212912	random string not longer than 32 characters
+signature	sign	yes	String(256)	KnHmTqAX3MoEwvwvl5DTAxzo	
+signature type	signType	yes	String	RSA	RSA/MD5
+transaction type	sceneType	yes	String(16)	JSAPI	interface submitted transaction type
+the values ​​are as follows: JSAPI, NATIVE, H5 payment constant transmission MWEB
+total amount	totalAmt	yes	Int	888	The total amount of the order, in cents, integers only
+Ucanpay order number	ucpOrderNo	yes	String(32)	12177525012033233368018	Ucanpay order number
+Ucanpay refund order number	ucpRefundNo	yes	String(32)	2020013467007045764	
+merchant order number	outTradeNo	yes	String(32)	2020013467007045764	
+merchant refund order number	outRefundNo	yes	String(32)	12177525012033233368	
+merchandise description	body	yes	String(64)	coffee	brief description of the item or order
+refund amount	refundAmt	yes	Int	12177525012014070
+888	The internal order number in the merchant's system; can only be numbers, uppercase and lowercase letters and is unique
+currency type	currency	yes	String(16)	CAD	ISO 4217 compliant three-letter code
+default Canadian dollar: CAD
+time stamp	timestamp	yes	String(32)	2021-01-29T03:55:56Z	Operation time in RFC 3339 format
+error codes
+名称	描述	原因	解决方案
+SYSTEMERROR	interface returns error	system timeout, etc.	Please do not change the merchant refund order number; please call the API again with the same parameters.
+BIZERR_NEED_RETRY	The refund process is incorrect; the merchant needs to retry to resolve the issue.	In the case of concurrency, the request is rejected, and the merchant shall retry to resolve the issue.	Please do not change the merchant refund order number; call the API again with the same parameters.
+TRADE_OVERDUE	The order has passed the refund period limit	The order has passed the maximum refundable period limit (refundable within one year of payment)	to be refunded by merchants through other methods
+ERROR	system error	error occurred in the request to cancel the request	The specific error reason will be returned for this type of error. Please action accordingly.
+USER_ACCOUNT_ABNORMAL	Refund request failed	user account de-registered	This status indicates that the refund application has failed
+Merchant to refund through other methods
+INVALID_REQ_TOO_MUCH	Too many invalid requests	too many consecutive invalid requests causing temporarily block by the system	Please check whether the system is normal. After confirming that the system is normal, try again in one minute.
+NOTENOUGH	insufficient balance	merchant has insufficient available balance to perform refund	This status indicates that the refund request has failed, and merchant shall action according to the specific error prompt.
+PARAM_ERROR	parameter incorrect	request parameters are not provided according to the guidelines	The request parameters are incorrect; please double check and call the refund request again
+REQUIRE_POST_METHOD	please use post method	parameters were not transmitted using post	check whether the request parameters are submitted through the post method
+SIGNERROR	signature error	signature result parameter error	check whether the signature parameters and methods meet the requirements of the signature algorithm
+FREQUENCY_LIMITED	the order amount or refund amount is inconsistent with the previous request; please verify and try again	the order amount or refund amount is inconsistent with the previous request; please verify and try again	the order amount or refund amount is inconsistent with the previous request; please verify and try again
+REFUND_FEE_MISMATCH	the order amount or refund amount is inconsistent with the previous request; please verify and try again	the order amount or refund amount is inconsistent with the previous request; please verify and try again	the order amount or refund amount is inconsistent with the previous request; please verify and try again
+INVALID_REQUEST	The request parameters conform to the required format, but do not conform to the business rules	This status indicates that the refund request was not successful, and the merchant shall action according to the specific error prompt.	This status indicates that the refund request was not successful, and the merchant shall action according to the specific error prompt.
+ORDER_NOT_READY	The order is being processed. The refund cannot be processed at this time; please try again later	The order is being processed. The refund cannot be processed at this time; please try again later	The order is being processed. The refund cannot be processed at this time; please try again later
+Updated over 1 year ago
+
+Payment Result Notification
+Querying Refund
+Did this page help you?
+TABLE OF CONTENTS
+interface link
+request parameters
+returned results
+error codes
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+Querying Refund
+📘
+Application scenarios
+
+After submitting a refund request, query the refund status by calling this API.
+
+521
+interface link
+URL: https://api.ucanpay.ca/payment/refundquery
+
+方法: POST
+
+Request
+Response
+
+{
+    "merchantId": "20000010",
+    "outTradeNo": "12177525012033233368018",
+    "ucpOrderNo": "12177525012033233368018",
+    "ucpRefundNo": "2020013467007045764",
+    "nonceStr": "5K8264ILTKCH16CQ2502SI8",
+    "outRefundNo": "12177525012033233368018",
+    "sign": "205075981821837313",
+    "signType": "RSA"
+}
+request parameters
+name
+parameter	mandatory	example	type	explanation
+merchant ID number	merchantId	yes	20000010	string(32)	Ucanpay assigned merchant ID number
+merchant order number	outTradeNo	yes	2020013467007045764	string(32)	merchant order number
+Ucanpay order number	ucpOrderNo	yes	12177525012033233368018	string(32)	Ucanpay order number
+Ucanpay refund order number	ucpRefundNo	yes			
+random string	nonceStr	yes	5K8264ILTKCH16CQ2502SI8	string(32)	random string not longer than 32 characters
+merchant refund order number	outRefundNo	yes	12177525012033233368018	string(32)	merchant system order number under 32 characters, can only be numbers, and uppercase and lowercase letters; must be unique in the merchant system
+signature	sign	yes	64ILTKCH16CQ2502SI	String(256)	
+signature type	signType	yes	RSA	String(64)	RSA（default）/MD5
+returned results
+name
+parameter	mandatory	type	example	explanation
+returned status code	code	yes	int	0	0 (success) or non-0
+This field is a communication indicator, not a transaction indicator. Check tradeStatus to determine whether a transaction is successful or not.
+returned message	msg	no	String(128)	SUCCESS	the returned message, if not null, is the cause of the failed transaction
+signature failure
+returned data	data	no	JSON		JSON string format
+merchant ID number	merchantId	yes	string(32)	20000010	Ucanpay assigned merchant ID number
+device number	deviceNo	yes	string(32)	WP20110212912	random string not longer than 32 characters
+random string	nonceStr	yes	string(32)	5K8264ILTKCH16CQ25S	random string not longer than 32 characters
+signature	sign	yes	String(256)		RSA/MD5 signature
+signature type	signType	yes	String(32)	signature type	RSA/MD5
+currency type	currency	yes	string(16)	CAD	ISO 4217 compliant three-letter code
+default Canadian dollar: CAD
+total order amount	totalAmt	yes	Int	888	The total amount of the order, in cents, integers only
+requested refund amount	refundAmt	yes	Int	888	The total amount of the current refund amount, in cents, integers only
+refund success time	refundSuccesTime	yes	String(32)	20091225091010	Refund success time, returned when the refund status is success
+format is yyyyMMddHHmmss
+e.g. 20091225091010 represents 9:10:10 on December 25, 2009
+total refund amount	totalRefundAmt	yes	Int	888	The total amount of the refund, in cents, can only be an integer
+Ucanpay order number	ucpOrderNo	yes	String(32)	12177525012033233368018	Ucanpay order number
+Ucanpay refund order number	ucpRefundNo	yes	String(32)		
+merchant order number	outTradeNo	yes	string(32)	12177525012014070
+33233368018	merchant system order number under 32 characters, can only be numbers, and uppercase and lowercase letters; must be unique in the merchant system
+merchant refund order number	outRefundNo	yes	string(32)	12177525012014070
+33233368018	merchant system refund order number under 32 characters, can only be numbers, and uppercase and lowercase letters; must be unique in the merchant system
+refund status	refundStatus	yes	String(14)	SUCCESS	SUCCESS—Refund success
+REFUNDCLOSE—Refund closed
+PROCESSING—Refund processing
+FAIL—Refund failed
+time stamp	timestamp	yes	String(32)		
+error codes
+name
+description	reason	solution
+SYSTEMERROR	interface returns error	system timeout, etc.	Please do not change the merchant refund order number; please call the API again with the same parameters.
+REFUNDNOTEXIST	refund order query failed	incorrect order number or order status	Please double check the order number and order status, such as: unpaid, paid but not refunded
+PARAM_ERROR	parameter incorrect	request parameters are not provided according to the guidelines	The request parameters are incorrect; please double check and call the refund request again
+REQUIRE_POST_METHOD	please use post method	parameters were not transmitted using post	check whether the request parameters are submitted through the post method
+SIGNERROR	signature error	signature result parameter error	check whether the signature parameters and methods meet the requirements of the signature algorithm
+INVALID_REQUEST	The request parameters conform to the required format, but do not conform to the business rules	This status indicates that the refund request was not successful, and the merchant shall action according to the specific error prompt.	This status indicates that the refund request was not successful, and the merchant shall action according to the specific error prompt.
+Updated over 1 year ago
+
+Requesting Refund
+Notification of Refund Result
+Did this page help you?
+TABLE OF CONTENTS
+interface link
+request parameters
+returned results
+error codes
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+Notification of Refund Result
+📘
+Application scenarios
+
+When the refund requested by the merchant has a result (refund status: success, refund closed, failed), Ucanpay will send the relevant results to the merchant, and the merchant needs to receive, process, and return a response.
+
+When background notifications are exchanged, if Ucanpay receives the merchant's response that unsuccessful or timed out, the platform considers that the notification fails, and it will determine that the notification is failed and resend the notification until it succeeds (if the notification continues to fail, multiple notifications will be initiated, the notification frequency is 15s, 15s, etc.), but there is no guarantee that the notification will eventually succeed.
+
+Note: The same notification may be sent to the merchant system multiple times. Merchant systems must be able to properly handle duplicate notifications.
+
+The recommended practice is that when receiving a notification for processing, first check the status of the corresponding business data to determine whether the notification has been processed. Before checking business data status and processing a notification, data locks should be used for concurrency control to avoid data confusion caused by function reentrancy.
+
+📘
+Interface connection
+
+The link is set through the notifyUrl parameter submitted in the “Requesting refund” API. If the link cannot be accessed, the merchant will not receive Ucanpay refund notifications. The notification url must be a directly accessible url and cannot carry parameters.
+Example: notifyUrl: https://abcompany.com/ucpay/refund.php
+
+521
+method: POST
+
+Request
+Response
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "merchantId": "2000000010",
+        "deviceNo": "WP20110212912",
+        "nonceStr": "5K8264ILTKCH16CQ25S",
+        "sign": "KnHmTqAX3MoEwvwvl5DTAxzo/H+5nqrGUP9CDGY3B9eoXpG1KOJ35KJ5mHCHVjCHkHolQIOVv5qaXZiEt7SeQsI1MVaq5+4qWWn7lmrEcwE4GqiIoP9FR/R1KLVZvULnoLWu0ivvFGwQKQOz0x7pmeGD2mjdCOm2xHlJHzETVBc=",
+        "signType": "RSA",
+        "currency": "CAD",
+        "sceneType":"JSAPI",
+        "totalAmt":  888,
+        "ucpOrderNo": "2020013467007045764",
+        "body": "商品描述",
+        "outTradeNo":"12177525012033233368018",
+        "outRefundNo": "12177525012033233368018",
+        "ucpRefundNo": "2020013467007045764",
+        "refundStatus": "success",
+        "refundTime":"2021-01-29 03:55:10",
+        "refundAmt": 888
+    },
+    "timestamp": "2021-01-29 03:56:21"
+}
+notification parameters
+name
+parameter	mandatory	type	example	explanation
+returned status code	code	yes	int	0	0 (success) or non-0
+This field is a communication indicator, not a transaction indicator. Check tradeStatus to determine whether a transaction is successful or not.
+returned message	msg	no	String(128)	SUCCESS	the returned message, if not null, is the cause of the failed transaction
+signature failure
+returned data	data	no	JSON		JSON string format
+merchant ID number	merchantId	yes	string(32)	20000010	Ucanpay assigned merchant ID number
+device number	deviceNo	yes	string(32)	WP20110212912	random string not longer than 32 characters
+random string	nonceStr	yes	string(32)	5K8264ILTKCH16CQ25S	random string not longer than 32 characters
+signature	sign	yes	String(256)		
+signature type	signType	yes	string(32)		
+currency type	currency	yes	string(16)	CAD	ISO 4217 compliant three-letter code
+default Canadian dollar: CAD
+transaction type	sceneType	yes	String(16)	JSAPI	interface submitted transaction type
+the values ​​are as follows: JSAPI, NATIVE, H5 payment constant transmission MWEB
+total amount	totalAmt	yes	Int	888	The total amount of the order, in cents, integers only
+Ucanpay order number	ucpOrderNo	yes	String(32)	12177525012033233368018	Ucanpay order number
+merchandise description	body	yes	String(64)	coffee	brief description of the item or order
+merchant order number	outTradeNo	yes	string(32)	12177525012014070
+33233368018	merchant system order number under 32 characters, can only be numbers, and uppercase and lowercase letters; must be unique in the merchant system
+merchant refund order number	outRefundNo	yes	string(32)		
+Ucanpay refund order number	ucpRefundNo	yes	string(32)		
+refund status	refundStatus	yes	String(16)	SUCCESS	SUCCESS—Refund success
+REFUNDCLOSE—Refund closed
+PROCESSING—Refund processing
+FAIL—Refund failed
+refund time	refundTime	yes	String(32)	20091225091010	time order is generated
+format is yyyyMMddHHmmss
+e.g. 20091225091010 represents 9:10:10 on December 25, 2009
+refund amount	refundAmt	yes	int		
+time stamp	timestamp	yes	String(32)		
+merchant returned results
+name
+parameter	mandatory	type	example	description
+returned status code	return_code	yes	String(16)	SUCCESS	SUCCESS/FAIL
+SUCCESS means that the merchant receives the notification successfully and the verification is successful
+returned message	return_msg	no	String(128)	OK	the returned message, if not null, is the cause of the failed transaction:
+signature failure
+parameter format verification error
+Updated over 1 year ago
+
+Querying Refund
+UCanPay App支付
+Did this page help you?
+TABLE OF CONTENTS
+notification parameters
+merchant returned results
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+UCanPay App支付
+商户WEB、APP调用UCanPay App支付
+
+841
+上图步骤3-4中，通过统一下单创建支付订单
+打开或重定向至以下URL，其中有关参数由统一下单接口确定
+HTTP
+
+https://ucanpaydev.page.link/?link=https://ucanpaydev.page.link/pay?outOrderNo%3D${ucpOrderNo}&ucpOrderNo%3D${ucpOrderNo}%26amount%3D${amount}%26item%3D${item}&sign={sign}
+&apn=ca.ucanpay.wapp
+Updated over 1 year ago
+
+Notification of Refund Result
+动态二维码支付
+Did this page help you?
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+动态二维码支付
+911
+上图步骤3-4中，通过统一下单创建支付订单
+打开或重定向至以下URL，其中有关参数由统一下单接口确定
+HTTP
+
+https://ucanpaydev.page.link/?link=https://ucanpaydev.page.link/pay?ucpOrderNo%3D${ucpOrderNo}%26amount%3D${amount}%26item%3D${item}&apn=ca.ucanpay.wapp
+Updated over 1 year ago
+
+UCanPay App支付
+静态二维码支付
+Did this page help you?
+
+
+
+
+Jump to Content
+ucanpay
+Log In
+v1.0
+API Reference
+
+Search
+CTRL-K
+JUMP TO
+CTRL-/
+UCANPAY支付
+接入介绍
+签名算法
+Integration introduction
+Signature Algorithm
+UCANPAY API
+统一下单
+查询订单
+关闭订单
+撤销订单
+支付结果通知
+退款申请
+退款查询
+退款结果通知
+Placing Unified Order
+Querying Orders
+Closing Orders
+Cancelling Orders
+Payment Result Notification
+Requesting Refund
+Querying Refund
+Notification of Refund Result
+流程说明
+UCanPay App支付
+动态二维码支付
+静态二维码支付
+Powered by 
+静态二维码支付
+Chart
+511
+Explanation
+1-2：商户提前在商户的admin portal下载静态二维码，用户扫描该二维码后打开ucanpay，用户输入支付金额，并确认支付。
+2-5: 后端验证支付结果，并退回客户端；同时商户可在admin portal查看新订单（或其他支付方式）。
+
+Updated over 1 year ago
+
+动态二维码支付
+Did this page help you?
+TABLE OF CONTENTS
+Chart
+Explanation
+
+
+
+

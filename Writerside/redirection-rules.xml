@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
+<rules>
+    <!-- format is as follows
+    <rule id="<unique id>">
+        <accepts>page.html</accepts>
+    </rule>
+    -->
+    <rule id="4e7ccaf0">
+        <description>Created after removal of "API 1" from Help Instance</description>
+        <accepts>API-1.html</accepts>
+    </rule>
+    <rule id="6597e435">
+        <description>Created after removal of "API 2" from Help Instance</description>
+        <accepts>API-2.html</accepts>
+    </rule>
+    <rule id="2c5b16b8">
+        <description>Created after removal of "How to Template" from Help Instance</description>
+        <accepts>How-to.html</accepts>
+    </rule>
+    <rule id="5e63a48">
+        <description>Created after removal of "Reference Template" from Help Instance</description>
+        <accepts>Reference.html</accepts>
+    </rule>
+    <rule id="6637b615">
+        <description>Created after removal of "Tutorial Template" from Help Instance</description>
+        <accepts>Tutorial.html</accepts>
+    </rule>
+    <rule id="3c01e22f">
+        <description>Created after removal of "Starter Template" from Help Instance</description>
+        <accepts>Starter.html</accepts>
+    </rule>
+    <rule id="5dde2c24">
+        <description>Created after removal of "Functionality" from Help Instance</description>
+        <accepts>Functionality.html</accepts>
+    </rule>
+    <rule id="1d68c164">
+        <description>Created after removal of "Quick Start" from Help Instance</description>
+        <accepts>Quick-Start.html</accepts>
+    </rule>
+</rules>
