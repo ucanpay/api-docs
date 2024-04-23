@@ -1,10 +1,13 @@
 # Signature Algorithm
 
-The Signature Algorithm page provides developers with the necessary information to securely sign their API requests to the UCanPay system. This ensures that the data integrity is maintained, and each request is verified to be from an authenticated source.
+The Signature Algorithm page provides developers with the necessary information to securely sign their API requests to
+the UCanPay system. This ensures that the data integrity is maintained, and each request is verified to be from an
+authenticated source.
 
 ## Purpose
 
-Signing API requests ensures that the payload has not been altered in transit, and it confirms the identity of the requester. It is a critical component of secure communication with UCanPay APIs.
+Signing API requests ensures that the payload has not been altered in transit, and it confirms the identity of the
+requester. It is a critical component of secure communication with UCanPay APIs.
 
 ## Algorithm Used
 
@@ -14,7 +17,8 @@ UCanPay uses RSA encryption for signing requests. Below are the steps to generat
 
 1. **Collect the Parameters**: Gather all the required parameters for the API call.
 2. **Sort Parameters**: Sort all the parameters alphabetically by their keys.
-3. **Concatenate Parameters**: Create a concatenated string of the sorted parameters in the form of `key=value` pairs separated by `&`.
+3. **Concatenate Parameters**: Create a concatenated string of the sorted parameters in the form of `key=value` pairs
+   separated by `&`.
 4. **Create String to Sign**: Append the API endpoint URI to the concatenated parameters string.
 5. **Generate Signature**: Sign the string using your private RSA key.
 
@@ -44,6 +48,7 @@ public class SignatureExample {
 Replace `privateKeyStr` with your actual private key string.
 
 ## Troubleshooting
+
 - **Invalid Signature**: Ensure the string to sign is correctly constructed and all parameters are included.
 - **Signature Mismatch**: Verify that the private key corresponds to the public key registered with UCanPay.
 - **Algorithm Error**: Confirm that SHA256withRSA is the algorithm being used, as this is what UCanPay expects.

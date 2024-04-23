@@ -1,6 +1,8 @@
 # Versioning &amp; Updates
 
-UCanPay API adheres to a strict versioning policy to ensure backward compatibility and minimize disruptions to your applications. This page details our approach to API versioning, how you can manage updates, and what changes you can expect in the future.
+UCanPay API adheres to a strict versioning policy to ensure backward compatibility and minimize disruptions to your
+applications. This page details our approach to API versioning, how you can manage updates, and what changes you can
+expect in the future.
 
 ## API Versioning Strategy
 
@@ -25,19 +27,17 @@ Our versioning strategy is designed to provide stability and predictability:
 
 To ensure a smooth transition between versions, follow these guidelines:
 
-<collapsible>
-    <title>Subscribe to Update Notifications</title>
-    <content>
+<chapter collapsible="true" title="Subscribe to Update Notifications">
+    <p>
 Stay informed about upcoming releases and changes by subscribing to our API newsletter. You will receive update notifications and detailed release notes.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
-<collapsible>
-    <title>Testing with Sandbox Environment</title>
-    <content>
+<chapter collapsible="true" title="Testing with Sandbox Environment">
+    <p>
 Before deploying new versions in your production environment, test them in our sandbox environment to ensure compatibility.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
 ## Update Schedule
 
@@ -67,23 +67,24 @@ Access the latest and historical release notes to stay informed about the change
 
 <seealso>
     <category ref="wrs">
-        <a href="https://ucanpay.ca/api-release-notes">API Release Notes</a>
+        <a href="https://ucanpay.com/api-release-notes">API Release Notes</a>
     </category>
 </seealso>
 
 ## Feedback on API Changes
 
-Your feedback is crucial to our continuous improvement. Please let us know how the changes affect your integration and what we can do better:
+Your feedback is crucial to our continuous improvement. Please let us know how the changes affect your integration and
+what we can do better:
 
 <tabs>
     <tab title="Feedback Form">
         <code-block lang="plain text">
-https://ucanpay.ca/feedback
+https://ucanpay.com/feedback
         </code-block>
     </tab>
     <tab title="Support">
         <code-block lang="plain text">
-Contact our support team at support@ucanpay.ca or +1-800-UCANPAY.
+Contact our support team at support@ucanpay.com or +1-800-UCANPAY.
         </code-block>
     </tab>
 </tabs>

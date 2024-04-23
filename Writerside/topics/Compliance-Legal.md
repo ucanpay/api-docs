@@ -1,10 +1,12 @@
 # Compliance &amp; Legal
 
-UCanPay adheres to strict compliance standards and legal regulations to ensure the highest levels of security and responsibility. This section outlines our compliance policies and the legal framework within which we operate.
+UCanPay adheres to strict compliance standards and legal regulations to ensure the highest levels of security and
+responsibility. This section outlines our compliance policies and the legal framework within which we operate.
 
 ## Compliance Framework
 
-Our compliance framework is designed to meet both local and international regulatory requirements, ensuring that all transactions are processed securely and lawfully.
+Our compliance framework is designed to meet both local and international regulatory requirements, ensuring that all
+transactions are processed securely and lawfully.
 
 <procedure title="Understanding Our Compliance Framework" id="compliance-framework-procedure">
     <step>
@@ -20,21 +22,20 @@ Our compliance framework is designed to meet both local and international regula
 
 ## Legal Obligations
 
-We are committed to upholding our legal obligations to our customers and partners. Here are key areas of our legal responsibility:
+We are committed to upholding our legal obligations to our customers and partners. Here are key areas of our legal
+responsibility:
 
-<collapsible>
-    <title>User Data Protection</title>
-    <content>
+<chapter title="User Data Protection" collapsible="true">
+    <p>
 UCanPay implements advanced security measures to protect user data against unauthorized access and data breaches. Our legal team continuously updates our policies to align with new data protection laws.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
-<collapsible>
-    <title>Financial Regulations</title>
-    <content>
+<chapter title="Financial Regulations" collapsible="true">
+    <p>
 We ensure that all financial transactions comply with the laws of the jurisdictions in which we operate. This includes abiding by anti-money laundering (AML) and counter-financing of terrorism (CFT) regulations.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
 ## Frequently Asked Questions
 

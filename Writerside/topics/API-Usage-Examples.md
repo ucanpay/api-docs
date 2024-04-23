@@ -1,10 +1,12 @@
 # API Usage Examples
 
-This document provides practical examples of how to use the UCanPay API to accomplish common tasks such as creating a payment order, querying an order, closing an order, and handling refunds.
+This document provides practical examples of how to use the UCanPay API to accomplish common tasks such as creating a
+payment order, querying an order, closing an order, and handling refunds.
 
 ## Creating a Payment Order
 
-When you want to create a new payment order through the UCanPay system, you'll use the `Placing Unified Order` API endpoint. Below is an example of how you might call this API.
+When you want to create a new payment order through the UCanPay system, you'll use the `Placing Unified Order` API
+endpoint. Below is an example of how you might call this API.
 
 ```http
 POST /payment/unifiedorder HTTP/1.1
@@ -23,11 +25,14 @@ Content-Type: application/json
     "sign": "GeneratedSignatureBasedOnYourPrivateKey"
 }
 ```
-The `nonceStr` and `sign` parameters are unique for each request and should be generated according to the API's specifications.
+
+The `nonceStr` and `sign` parameters are unique for each request and should be generated according to the API's
+specifications.
 
 ## Querying an Order
 
-To query the status of an order, you would use the `Querying Orders` endpoint. Here's how you might structure the request:
+To query the status of an order, you would use the `Querying Orders` endpoint. Here's how you might structure the
+request:
 
 ```HTTP
 POST /payment/orderquery HTTP/1.1
@@ -42,6 +47,7 @@ Content-Type: application/json
 }
 
 ```
+
 Replace `outTradeNo` with your unique order number to receive the current status of the specific order.
 
 ## Closing an Order
@@ -60,6 +66,7 @@ Content-Type: application/json
     "sign": "GeneratedSignatureBasedOnYourPrivateKey"
 }
 ```
+
 Make sure to update the `outTradeNo` with the order number you wish to close.
 
 ## Handling Refunds
@@ -83,8 +90,11 @@ Content-Type: application/json
     "sign": "GeneratedSignatureBasedOnYourPrivateKey"
 }
 ```
+
 Remember to use the unique `outRefundNo` for the refund transaction.
 
-For the `sign` parameter in each of these examples, you will need to generate a signature as per the UCanPay's `Signature Algorithm` documentation, typically using your API secret.
+For the `sign` parameter in each of these examples, you will need to generate a signature as per the
+UCanPay's `Signature Algorithm` documentation, typically using your API secret.
 
-Please refer to the official UCanPay documentation for more detailed information on each endpoint, required parameters, and error handling.
+Please refer to the official UCanPay documentation for more detailed information on each endpoint, required parameters,
+and error handling.

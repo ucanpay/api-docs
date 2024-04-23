@@ -1,10 +1,12 @@
 # API Changelog
 
-Stay updated with the changes and improvements in the UCanPay API. This changelog provides a detailed record of all notable changes made to the API, including new features, bug fixes, and breaking changes.
+Stay updated with the changes and improvements in the UCanPay API. This changelog provides a detailed record of all
+notable changes made to the API, including new features, bug fixes, and breaking changes.
 
 ## Accessing the Changelog
 
-We maintain a comprehensive list of changes for each version of the API. You can access the changelog through our dedicated portal:
+We maintain a comprehensive list of changes for each version of the API. You can access the changelog through our
+dedicated portal:
 
 <seealso>
     <category ref="wrs">
@@ -32,14 +34,10 @@ Each entry in the changelog follows a structured format to provide clear and con
 
 Here is an example of how a changelog entry might look:
 
-<collapsible>
-    <title>Version 2.1.0 - Released on 2021-05-20</title>
-    <content>
-- **New Feature:** Added support for multi-currency transactions.
-- **Bug Fix:** Resolved an issue where transaction queries could time out unexpectedly.
-- **Breaking Change:** Updated the endpoint for payment verification to include additional security checks.
-    </content>
-</collapsible>
+<chapter title="Coming soon!" collapsible="true">
+    <p>
+    </p>
+</chapter>
 
 ## Monitoring Changes
 

@@ -1,6 +1,7 @@
 # Integration Checklists
 
-Proper integration of the UCanPay API into your service is crucial for smooth operation and a good user experience. Use the following checklist to ensure you cover all necessary steps for a successful integration.
+Proper integration of the UCanPay API into your service is crucial for smooth operation and a good user experience. Use
+the following checklist to ensure you cover all necessary steps for a successful integration.
 
 ## Pre-Integration Checklist
 
@@ -65,5 +66,7 @@ After integration is live, make sure to:
 - [ ] Keep an eye on the UCanPay API changelog for updates or deprecations.
 - [ ] Plan for regular reviews of the integration to ensure ongoing compatibility.
 
-Following these checklists will help you achieve a robust and secure integration with UCanPay, providing a seamless payment experience for your users. If you encounter any issues or have questions, contact [UCanPay Support](https://ucanpay.ca/support).
+Following these checklists will help you achieve a robust and secure integration with UCanPay, providing a seamless
+payment experience for your users. If you encounter any issues or have questions,
+contact [UCanPay Support](https://ucanpay.ca/support).
 

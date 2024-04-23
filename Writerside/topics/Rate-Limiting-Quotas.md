@@ -1,6 +1,7 @@
 # Rate Limiting &amp; Quotas
 
-UCanPay implements rate limiting and quotas to ensure fair usage and protect the API from abuse. This guide provides details on our rate limiting policies and how to manage your usage quotas effectively.
+UCanPay implements rate limiting and quotas to ensure fair usage and protect the API from abuse. This guide provides
+details on our rate limiting policies and how to manage your usage quotas effectively.
 
 ## Understanding Rate Limits
 
@@ -25,25 +26,25 @@ X-RateLimit-Reset: 1588400000
 
 ## Managing Quotas
 
-Quotas determine the maximum number of requests that your application can make to the UCanPay API over a longer period, typically a month.
+Quotas determine the maximum number of requests that your application can make to the UCanPay API over a longer period,
+typically a month.
 
-<collapsible>
-    <title>Check Your Current Quota Usage</title>
-    <content>
+<chapter title="Check Your Current Quota Usage" collapsible="true">
+    <p>
 To check your current quota usage, visit your account dashboard at <a href="https://ucanpay.ca/dashboard">ucanpay.ca/dashboard</a>. Detailed usage statistics are available to help you plan and manage your application's demands.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
-<collapsible>
-    <title>Requesting Quota Increases</title>
-    <content>
+<chapter title="Requesting Quota Increases" collapsible="true">
+    <p>
 If your business needs exceed the default quotas, you can request an increase by contacting our support team. Provide details about your use case and anticipated volume to support your request.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
 ## Best Practices for Managing Rate Limits
 
-Implementing these best practices can help you avoid hitting rate limits and ensure smooth operation of your applications.
+Implementing these best practices can help you avoid hitting rate limits and ensure smooth operation of your
+applications.
 
 <tabs>
     <tab title="Caching">
@@ -65,7 +66,8 @@ When you receive a 429 response, use the <code>X-RateLimit-Reset</code> header t
 
 ## Monitoring and Alerts
 
-Set up monitoring on your API usage to receive alerts when you are approaching your rate limits or quotas. This proactive approach will allow you to adjust your usage patterns or request quota increases before issues arise.
+Set up monitoring on your API usage to receive alerts when you are approaching your rate limits or quotas. This
+proactive approach will allow you to adjust your usage patterns or request quota increases before issues arise.
 
 <seealso>
     <category ref="wrs">

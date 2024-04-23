@@ -1,6 +1,8 @@
 # Client Libraries &amp; SDKs
 
-To facilitate the integration of the UCanPay API into your applications, we provide several client libraries and SDKs. These tools are designed to simplify the process of coding for different platforms and languages, ensuring that developers can focus on building features without worrying about the underlying API calls.
+To facilitate the integration of the UCanPay API into your applications, we provide several client libraries and SDKs.
+These tools are designed to simplify the process of coding for different platforms and languages, ensuring that
+developers can focus on building features without worrying about the underlying API calls.
 
 ## Available Libraries
 
@@ -38,7 +40,6 @@ We currently offer client libraries for the following programming languages:
   System.out.println(response.getStatus());
   ```
 
-
 ### Node.js
 
 - **GitHub Repository**: [UCanPay Node SDK](https://github.com/UCanPay/node-sdk)
@@ -54,7 +55,6 @@ We currently offer client libraries for the following programming languages:
       .then(response => console.log(response))
       .catch(error => console.error(error));
   ```
-
 
 ### PHP
 

@@ -1,6 +1,7 @@
 # Support &amp; Community
 
-Welcome to the UCanPay Support & Community page! Whether you need help troubleshooting an issue, want to share your experiences, or are looking for resources to get the most out of UCanPay, we have various channels to support you.
+Welcome to the UCanPay Support & Community page! Whether you need help troubleshooting an issue, want to share your
+experiences, or are looking for resources to get the most out of UCanPay, we have various channels to support you.
 
 ## Contact Support
 
@@ -20,7 +21,8 @@ If you encounter issues or need assistance with your UCanPay integration, our su
 
 ## Community Forums
 
-Join the discussion in our community forums to connect with other UCanPay users and developers. Share tips, ask questions, and collaborate on solutions.
+Join the discussion in our community forums to connect with other UCanPay users and developers. Share tips, ask
+questions, and collaborate on solutions.
 
 <tabs>
     <tab title="Forum Guidelines">
@@ -39,23 +41,22 @@ Access our forums at <a href="https://forums.ucanpay.ca">forums.ucanpay.ca</a> t
 
 Explore our extensive range of developer resources to help you get the most out of your UCanPay integration.
 
-<collapsible>
-    <title>API Documentation</title>
-    <content>
+<chapter title="API Documentation" collapsible="true">
+    <p>
 Comprehensive documentation on how to use our API is available at <a href="https://ucanpay.ca/docs/api">ucanpay.ca/docs/api</a>.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
-<collapsible>
-    <title>SDKs and Libraries</title>
-    <content>
+<chapter title="SDKs and Libraries" collapsible="true">
+    <p>
 Check out our SDKs for different programming languages to simplify your development process. Visit <a href="https://ucanpay.ca/docs/sdk">ucanpay.ca/docs/sdk</a> for more information.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
 ## Social Media
 
-Stay connected and up-to-date with the latest news, updates, and discussions by following us on our social media channels.
+Stay connected and up-to-date with the latest news, updates, and discussions by following us on our social media
+channels.
 
 <tabs>
     <tab title="Twitter">
@@ -85,7 +86,8 @@ We are always looking to improve our services and welcome your feedback and sugg
 
 ## Get Involved
 
-Become a part of our product development process by joining our beta testing program or contributing to our open source projects.
+Become a part of our product development process by joining our beta testing program or contributing to our open source
+projects.
 
 <seealso>
     <category ref="wrs">

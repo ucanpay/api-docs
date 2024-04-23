@@ -1,6 +1,8 @@
 # User Guides
 
-Welcome to the UCanPay User Guides! These guides are designed to help you understand and make the most out of your UCanPay integration, covering a wide range of topics from basic setup to advanced features. Whether you are a new user or looking to expand your knowledge, these guides provide step-by-step instructions and useful tips.
+Welcome to the UCanPay User Guides! These guides are designed to help you understand and make the most out of your
+UCanPay integration, covering a wide range of topics from basic setup to advanced features. Whether you are a new user
+or looking to expand your knowledge, these guides provide step-by-step instructions and useful tips.
 
 ## Getting Started
 
@@ -51,34 +53,31 @@ Learn how to leverage advanced features such as recurring payments, multi-curren
 
 Setting up and managing subscriptions and recurring payments.
 
-<collapsible>
-    <title>Guide to Recurring Payments</title>
-    <content>
+<chapter title="Guide to Recurring Payments" collapsible="true">
+    <p>
 This section provides a comprehensive guide to setting up recurring payments, including necessary API calls and best practices.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
 ### Multi-Currency Transactions
 
 How to accept and process payments in multiple currencies.
 
-<collapsible default-state="expanded">
-    <title>Handling Multi-Currency</title>
-    <content>
+<chapter title="Handling Multi-Currency" collapsible="true" default-state="expanded">
+    <p>
 Detailed steps and examples on managing multi-currency transactions to expand your global reach.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
 ## Troubleshooting
 
 ### Common Issues and Resolutions
 
-<collapsible>
-    <title>FAQs on Common Issues</title>
-    <content>
+<chapter title="FAQs on Common Issues" collapsible="true">
+    <p>
 If you encounter common problems, refer to this section for troubleshooting tips and potential solutions.
-    </content>
-</collapsible>
+    </p>
+</chapter>
 
 ## Feedback and Support
 
