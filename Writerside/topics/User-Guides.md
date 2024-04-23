@@ -32,15 +32,19 @@ Detailed instructions for integrating UCanPay with various platforms and languag
 <tabs>
     <tab title="Web">
         <code-block lang="html">
+            <![CDATA[
             <!-- Example of HTML integration -->
             <script src="ucanpay.js"></script>
             <button onclick="ucanpay.init('YOUR_API_KEY')">Pay Now</button>
+            ]]>
         </code-block>
     </tab>
     <tab title="Mobile">
         <code-block lang="swift">
+            <![CDATA[
             // Example of iOS integration using Swift
             UCanPayAPI.shared.initialize(apiKey: "YOUR_API_KEY")
+            ]]>
         </code-block>
     </tab>
 </tabs>

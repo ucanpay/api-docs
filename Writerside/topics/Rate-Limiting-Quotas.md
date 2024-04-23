@@ -46,23 +46,19 @@ If your business needs exceed the default quotas, you can request an increase by
 Implementing these best practices can help you avoid hitting rate limits and ensure smooth operation of your
 applications.
 
-<tabs>
-    <tab title="Caching">
-        <code-block lang="plain text">
-Utilize caching to reduce the number of requests to our servers. Store responses locally and reuse the data to handle similar requests.
-        </code-block>
-    </tab>
-    <tab title="Throttling">
-        <code-block lang="plain text">
-Implement client-side request throttling by spacing out API calls. Use a queue or a scheduler to manage the timing of your requests.
-        </code-block>
-    </tab>
-    <tab title="Handling 429 Responses">
-        <code-block lang="plain text">
+### Caching
+
+Utilize caching to reduce the number of requests to our servers. Store responses locally and reuse the data to handle
+similar requests.
+
+### Throttling
+
+Implement client-side request throttling by spacing out API calls. Use a queue or a scheduler to manage the timing of
+your requests.
+
+### Handling 429 Responses
+
 When you receive a 429 response, use the <code>X-RateLimit-Reset</code> header to determine when to retry your request.
-        </code-block>
-    </tab>
-</tabs>
 
 ## Monitoring and Alerts
 

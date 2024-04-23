@@ -13,13 +13,13 @@ Our versioning strategy is designed to provide stability and predictability:
         <p>We use semantic versioning (SemVer) for our API. Versions are formatted as `MAJOR.MINOR.PATCH`.</p>
     </step>
     <step>
-        <p>**Major releases** may introduce breaking changes that could affect existing integrations. They are communicated well in advance.</p>
+        <p><format style="bold">Major releases</format> may introduce breaking changes that could affect existing integrations. They are communicated well in advance.</p>
     </step>
     <step>
-        <p>**Minor releases** add new features but do not break existing functionality.</p>
+        <p><format style="bold">Minor releases</format> add new features but do not break existing functionality.</p>
     </step>
     <step>
-        <p>**Patch releases** include bug fixes and minor changes that do not affect the API's external behavior.</p>
+        <p><format style="bold">Patch releases</format> include bug fixes and minor changes that do not affect the API's external behavior.</p>
     </step>
 </procedure>
 
@@ -43,23 +43,9 @@ Before deploying new versions in your production environment, test them in our s
 
 UCanPay follows a regular update schedule to keep our services secure and efficient:
 
-<tabs>
-    <tab title="Major Updates">
-        <code-block lang="plain text">
-Scheduled annually, with preliminary release notes provided six months in advance.
-        </code-block>
-    </tab>
-    <tab title="Minor Updates">
-        <code-block lang="plain text">
-Occur quarterly and include new features and enhancements.
-        </code-block>
-    </tab>
-    <tab title="Patch Updates">
-        <code-block lang="plain text">
-Deployed as needed, typically monthly, to address urgent issues.
-        </code-block>
-    </tab>
-</tabs>
+- **Major Updates:** Scheduled annually, with preliminary release notes provided six months in advance.
+- **Minor Updates:** Occur quarterly and include new features and enhancements.
+- **Patch Updates:** Deployed as needed, typically monthly, to address urgent issues.
 
 ## Release Notes
 
@@ -67,7 +53,7 @@ Access the latest and historical release notes to stay informed about the change
 
 <seealso>
     <category ref="wrs">
-        <a href="https://ucanpay.com/api-release-notes">API Release Notes</a>
+        <a href="https://ucanpay.ca/api-release-notes">API Release Notes</a>
     </category>
 </seealso>
 
@@ -76,15 +62,5 @@ Access the latest and historical release notes to stay informed about the change
 Your feedback is crucial to our continuous improvement. Please let us know how the changes affect your integration and
 what we can do better:
 
-<tabs>
-    <tab title="Feedback Form">
-        <code-block lang="plain text">
-https://ucanpay.com/feedback
-        </code-block>
-    </tab>
-    <tab title="Support">
-        <code-block lang="plain text">
-Contact our support team at support@ucanpay.com or +1-800-UCANPAY.
-        </code-block>
-    </tab>
-</tabs>
+- https://ucanpay.ca/feedback
+- Contact our support team at support@ucanpay.ca or +1-800-UCANPAY.

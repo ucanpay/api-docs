@@ -41,20 +41,20 @@ We ensure that all financial transactions comply with the laws of the jurisdicti
 
 Here are answers to some common legal and compliance questions:
 
-<tabs>
-    <tab title="GDPR">
-        <code-block lang="plain text">
+### GDPR
+
 Q: What is GDPR?
-A: The General Data Protection Regulation (GDPR) is a regulation in EU law on data protection and privacy in the European Union and the European Economic Area.
-        </code-block>
-    </tab>
-    <tab title="PCI Compliance">
-        <code-block lang="plain text">
+
+A: The General Data Protection Regulation (GDPR) is a regulation in EU law on data protection and privacy in the
+European Union and the European Economic Area.
+
+### PCI Compliance
+
 Q: What is PCI Compliance?
-A: PCI Compliance refers to the Payment Card Industry Data Security Standard (PCI DSS), a set of security standards designed to ensure that all companies that accept, process, store, or transmit credit card information maintain a secure environment.
-        </code-block>
-    </tab>
-</tabs>
+
+A: PCI Compliance refers to the Payment Card Industry Data Security Standard (PCI DSS), a set of security standards
+designed to ensure that all companies that accept, process, store, or transmit credit card information maintain a secure
+environment.
 
 ## Legal Documents
 
@@ -77,16 +77,4 @@ Access important legal documents related to our services:
 ## Contacting Our Legal Department
 
 For any legal inquiries or issues, please contact our legal department through the following methods:
-
-<tabs>
-    <tab title="Email">
-        <code-block lang="plain text">
-legal@ucanpay.ca
-        </code-block>
-    </tab>
-    <tab title="Phone">
-        <code-block lang="plain text">
-+1-800-UCANPAY
-        </code-block>
-    </tab>
-</tabs>
+<a href="https://ucanpay.ca/legal-resources">Support</a>

@@ -24,18 +24,13 @@ If you encounter issues or need assistance with your UCanPay integration, our su
 Join the discussion in our community forums to connect with other UCanPay users and developers. Share tips, ask
 questions, and collaborate on solutions.
 
-<tabs>
-    <tab title="Forum Guidelines">
-        <code-block lang="plain text">
+### Forum Guidelines
+
 Please read our community guidelines to ensure a respectful and productive discussion.
-        </code-block>
-    </tab>
-    <tab title="Access the Forums">
-        <code-block lang="plain text">
+
+### Access the Forums
+
 Access our forums at <a href="https://forums.ucanpay.ca">forums.ucanpay.ca</a> to start engaging with the community.
-        </code-block>
-    </tab>
-</tabs>
 
 ## Developer Resources
 
@@ -58,18 +53,9 @@ Check out our SDKs for different programming languages to simplify your developm
 Stay connected and up-to-date with the latest news, updates, and discussions by following us on our social media
 channels.
 
-<tabs>
-    <tab title="Twitter">
-        <code-block lang="plain text">
-Follow us on Twitter at <a href="https://twitter.com/ucanpay">@UCanPay</a> for real-time updates and community Q&As.
-        </code-block>
-    </tab>
-    <tab title="LinkedIn">
-        <code-block lang="plain text">
-Connect with us on LinkedIn at <a href="https://www.linkedin.com/company/ucanpay">UCanPay</a> for professional news and network.
-        </code-block>
-    </tab>
-</tabs>
+- Follow us on Twitter at <a href="https://twitter.com/ucanpay">@UCanPay</a> for real-time updates and community Q&As.
+- Connect with us on LinkedIn at <a href="https://www.linkedin.com/company/ucanpay">UCanPay</a> for professional news
+  and network.
 
 ## Feedback and Suggestions
 

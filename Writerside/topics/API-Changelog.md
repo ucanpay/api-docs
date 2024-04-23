@@ -20,13 +20,13 @@ Each entry in the changelog follows a structured format to provide clear and con
 
 <procedure title="Changelog Entry Format" id="changelog-format">
     <step>
-        <p>**Version Number:** The version of the API affected by the changes.</p>
+        <format style="bold">Version Number:</format> The <format style="bold">version</format> of the API affected by the changes.
     </step>
     <step>
-        <p>**Release Date:** The date on which the version was released.</p>
+        <format style="bold">Release Date:</format> The date on which the version was released.
     </step>
     <step>
-        <p>**Changes:** A bullet list detailing new features, fixes, and any breaking changes.</p>
+        <format style="bold">Changes:</format> A bullet list detailing new features, fixes, and any breaking changes.
     </step>
 </procedure>
 
@@ -43,18 +43,10 @@ Here is an example of how a changelog entry might look:
 
 Stay proactive by monitoring changes that may impact your integration:
 
-<tabs>
-    <tab title="Subscribe to Notifications">
-        <code-block lang="plain text">
-To receive real-time updates whenever the changelog is updated, subscribe to our notification service at https://ucanpay.ca/subscribe.
-        </code-block>
-    </tab>
-    <tab title="Check Regularly">
-        <code-block lang="plain text">
-We recommend checking the changelog regularly, especially before implementing new features or updates in your application.
-        </code-block>
-    </tab>
-</tabs>
+- To receive real-time updates whenever the changelog is updated, subscribe to our notification service
+  at https://ucanpay.ca/subscribe.
+- We recommend checking the changelog regularly, especially before implementing new features or updates in your
+  application.
 
 ## Providing Feedback
 
