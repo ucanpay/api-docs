@@ -7,7 +7,7 @@ This section will guide you through the initial setup and fundamental steps nece
 Before you begin integrating the UCanPay API, ensure you meet the following prerequisites:
 
 - **Secure Environment**: Your development environment must be secure and capable of making HTTPS requests to external servers.
-- **UCanPay Account**: You need to have a registered UCanPay account. [Sign up here](https://ucanpay.com/signup) if you don't have one.
+- **UCanPay Account**: You need to have a registered UCanPay account. [Sign up here](https://ucanpay.ca/signup) if you don't have one.
 - **API Credentials**: Obtain your API keys (public and private keys) from your UCanPay dashboard.
 
 ## Configuration
@@ -37,7 +37,7 @@ To ensure everything is set up correctly, try making a test API call to create a
 Example request to create a new payment order:
 
 ```bash
-curl -X POST https://api.ucanpay.com/payment/unifiedorder \
+curl -X POST https://api.ucanpay.ca/payment/unifiedorder \
      -H "Content-Type: application/json" \
      -d '{
            "merchantId": "your_merchant_id",

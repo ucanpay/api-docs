@@ -16,7 +16,7 @@ You must include your API key as a header in each request to the UCanPay API. Th
 Example of including an API key in a request header:
 
 ```bash
-curl -X POST https://api.ucanpay.com/payment/unifiedorder \
+curl -X POST https://api.ucanpay.ca/payment/unifiedorder \
      -H "Authorization: Bearer your_private_key" \
      -H "Content-Type: application/json" \
      -d '{
@@ -51,4 +51,4 @@ If there is an issue with your API key or if it is missing from your request, yo
 ## Next Steps
 After setting up authentication, you are ready to explore detailed functionalities offered by the API. Proceed to the sections detailing how to initiate transactions, handle responses, and verify transaction status.
 
-For any questions or issues related to API keys or authentication, please contact our support team at support@ucanpay.com.
+For any questions or issues related to API keys or authentication, please contact our support team at support@ucanpay.ca.

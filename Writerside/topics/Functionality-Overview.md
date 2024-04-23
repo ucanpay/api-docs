@@ -27,6 +27,6 @@ The UCanPay API provides a suite of services allowing for the seamless processin
 ### Support and Resources
 
 - **Documentation and Guides**: Access detailed documentation, API references, and developer guides to assist with your integration.
-- **Developer Support**: Contact our developer support team via `support@ucanpay.com` for assistance with setup, troubleshooting, or any API related inquiries.
+- **Developer Support**: Contact our developer support team via `support@ucanpay.ca` for assistance with setup, troubleshooting, or any API related inquiries.
 
 These functionalities are designed to provide you with full control over the payment and order processing workflows, enhancing your application's capabilities and user experience.

@@ -6,7 +6,7 @@ The UCanPay Testing and Sandbox environment is designed to provide a full-fledge
 
 ## Accessing the Sandbox
 
-To access the Sandbox environment, you must first create a Sandbox account. Register at `https://sandbox.ucanpay.com/signup` to obtain your sandbox credentials, which will include a unique API key for sandbox testing.
+To access the Sandbox environment, you must first create a Sandbox account. Register at `https://sandbox.ucanpay.ca/signup` to obtain your sandbox credentials, which will include a unique API key for sandbox testing.
 
 ## Features
 
@@ -18,7 +18,7 @@ To access the Sandbox environment, you must first create a Sandbox account. Regi
 
 ## Using the Sandbox
 
-1. **Environment Switch:** Ensure that your API calls are directed to the Sandbox URL: `https://api.sandbox.ucanpay.com`.
+1. **Environment Switch:** Ensure that your API calls are directed to the Sandbox URL: `https://api.sandbox.ucanpay.ca`.
 
 2. **API Credentials:** Utilize the API key and other credentials provided upon Sandbox registration for authentication.
 
@@ -42,7 +42,7 @@ To access the Sandbox environment, you must first create a Sandbox account. Regi
 
 ## Support
 
-If you encounter any issues or have questions regarding the Sandbox environment, please contact our support team at `support@ucanpay.com`.
+If you encounter any issues or have questions regarding the Sandbox environment, please contact our support team at `support@ucanpay.ca`.
 
 ---
 

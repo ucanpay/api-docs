@@ -46,7 +46,7 @@ Replace `outTradeNo` with your unique order number to receive the current status
 
 ## Closing an Order
 
-If a customer canciles their order or if an order times out, you can close it using the `Closing Orders` endpoint:
+If a customer cancels their order or if an order times out, you can close it using the `Closing Orders` endpoint:
 
 ```HTTP
 POST /payment/closeorder HTTP/1.1

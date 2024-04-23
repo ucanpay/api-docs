@@ -3,12 +3,12 @@
 Before you begin the integration process, ensure that you meet the following prerequisites:
 
 ## Account Setup
-- **Create a UCanPay Account:** Sign up for a UCanPay account [here](https://ucanpay.com/signup).
+- **Create a UCanPay Account:** Sign up for a UCanPay account [here](https://ucanpay.ca/signup).
 - **Verify Your Account:** Complete the account verification process by providing the necessary business details and documents.
 
 ## System Requirements
 - Ensure your system meets the following requirements:
-    - **Operating System:** Compatible with Windows, MacOS, or Linux.
+    - **Operating System:** Compatible with Windows, macOS, or Linux.
     - **Server:** Must support HTTPS protocol for secure API calls.
 
 ## API Keys

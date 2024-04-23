@@ -38,4 +38,8 @@
         <description>Created after removal of "Quick Start" from Help Instance</description>
         <accepts>Quick-Start.html</accepts>
     </rule>
+    <rule id="77e5e920">
+        <description>Created after removal of "This is the first topic" from Help Instance</description>
+        <accepts>Default-topic.html</accepts>
+    </rule>
 </rules>

@@ -21,7 +21,7 @@ and `secret_key` for making API calls.
 The following is an example of a simple API call to the UCanPay API to create a new payment order:
 
 ```bash
-curl -X POST https://api.ucanpay.com/v1/payments \
+curl -X POST https://api.ucanpay.ca/v1/payments \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer YOUR_SECRET_KEY" \
 -d '{
@@ -49,7 +49,7 @@ const data = JSON.stringify({
 });
 
 const options = {
-  hostname: 'api.ucanpay.com',
+  hostname: 'api.ucanpay.ca',
   port: 443,
   path: '/v1/payments',
   method: 'POST',

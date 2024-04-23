@@ -107,7 +107,7 @@ Adhering to the following best practices can enhance error handling and improve 
 
 - **Retry Logic:** Implement intelligent retry logic for handling transient errors. Exponential backoff strategies can be effective in managing retries for temporary issues.
 
-- **Status Page:** Keep an eye on the [UCanPay Status Page](https://status.ucanpay.com) for real-time information about the API's performance and uptime. This can help you discern whether an issue is on your end or with the API service.
+- **Status Page:** Keep an eye on the [UCanPay Status Page](https://status.ucanpay.ca) for real-time information about the API's performance and uptime. This can help you discern whether an issue is on your end or with the API service.
 
 - **User Feedback:** In cases where an operation fails, provide mechanisms for users to report the issue or try the operation again.
 

@@ -6,7 +6,7 @@ Proper integration of the UCanPay API into your service is crucial for smooth op
 
 Before you begin the integration process, make sure to:
 
-- [ ] Review the [API documentation](https://ucanpay.com/docs/api).
+- [ ] Review the [API documentation](https://ucanpay.ca/docs/api).
 - [ ] Obtain the necessary API keys from your UCanPay dashboard.
 - [ ] Set up a sandbox environment for testing purposes.
 - [ ] Ensure compliance with UCanPay's security requirements.
@@ -65,5 +65,5 @@ After integration is live, make sure to:
 - [ ] Keep an eye on the UCanPay API changelog for updates or deprecations.
 - [ ] Plan for regular reviews of the integration to ensure ongoing compatibility.
 
-Following these checklists will help you achieve a robust and secure integration with UCanPay, providing a seamless payment experience for your users. If you encounter any issues or have questions, contact [UCanPay Support](https://ucanpay.com/support).
+Following these checklists will help you achieve a robust and secure integration with UCanPay, providing a seamless payment experience for your users. If you encounter any issues or have questions, contact [UCanPay Support](https://ucanpay.ca/support).
 
