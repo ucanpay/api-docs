@@ -10,7 +10,7 @@ dedicated portal:
 
 <seealso>
     <category ref="wrs">
-        <a href="https://ucanpay.ca/api-changelog">API Changelog Portal</a>
+        <a href="https://docs.ucanpay.ca/api-changelog">API Changelog Portal</a>
     </category>
 </seealso>
 

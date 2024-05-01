@@ -9,7 +9,7 @@ If you encounter issues or need assistance with your UCanPay integration, our su
 
 <procedure title="Contacting Support" id="contacting-support">
     <step>
-        <p>Visit our support portal at <a href="https://support.ucanpay.ca">support.ucanpay.ca</a>.</p>
+        <p>Visit our support portal at <a href="https://ucanpay.ca/help">ucanpay.ca/help</a>.</p>
     </step>
     <step>
         <p>Submit a detailed description of your problem, including any error messages or screenshots.</p>
@@ -19,32 +19,20 @@ If you encounter issues or need assistance with your UCanPay integration, our su
     </step>
 </procedure>
 
-## Community Forums
-
-Join the discussion in our community forums to connect with other UCanPay users and developers. Share tips, ask
-questions, and collaborate on solutions.
-
-### Forum Guidelines
-
-Please read our community guidelines to ensure a respectful and productive discussion.
-
-### Access the Forums
-
-Access our forums at <a href="https://forums.ucanpay.ca">forums.ucanpay.ca</a> to start engaging with the community.
-
 ## Developer Resources
 
 Explore our extensive range of developer resources to help you get the most out of your UCanPay integration.
 
 **API Documentation**
 
-Comprehensive documentation on how to use our API is available at <a href="https://ucanpay.ca/docs/api">
-ucanpay.ca/docs/api</a>.
+Comprehensive documentation on how to use our API is available at <a href="https://docs.ucanpay.ca">
+docs.ucanpay.ca</a>.
 
 **SDKs and Libraries**
 
 Check out our SDKs for different programming languages to simplify your development process.
-Visit <a href="https://ucanpay.ca/docs/sdk">ucanpay.ca/docs/sdk</a> for more information.
+Visit <a href="https://docs.ucanpay.ca/client-libraries-sdks">docs.ucanpay.ca/client-libraries-sdks</a> for more
+information.
 
 ## Social Media
 

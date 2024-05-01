@@ -7,39 +7,39 @@
     </rule>
     -->
     <rule id="4e7ccaf0">
-        <description>Created after removal of "API 1" from Help Instance</description>
+        <description>Created after removal of "API 1" from UCanPay API Docs</description>
         <accepts>API-1.html</accepts>
     </rule>
     <rule id="6597e435">
-        <description>Created after removal of "API 2" from Help Instance</description>
+        <description>Created after removal of "API 2" from UCanPay API Docs</description>
         <accepts>API-2.html</accepts>
     </rule>
     <rule id="2c5b16b8">
-        <description>Created after removal of "How to Template" from Help Instance</description>
+        <description>Created after removal of "How to Template" from UCanPay API Docs</description>
         <accepts>How-to.html</accepts>
     </rule>
     <rule id="5e63a48">
-        <description>Created after removal of "Reference Template" from Help Instance</description>
+        <description>Created after removal of "Reference Template" from UCanPay API Docs</description>
         <accepts>Reference.html</accepts>
     </rule>
     <rule id="6637b615">
-        <description>Created after removal of "Tutorial Template" from Help Instance</description>
+        <description>Created after removal of "Tutorial Template" from UCanPay API Docs</description>
         <accepts>Tutorial.html</accepts>
     </rule>
     <rule id="3c01e22f">
-        <description>Created after removal of "Starter Template" from Help Instance</description>
+        <description>Created after removal of "Starter Template" from UCanPay API Docs</description>
         <accepts>Starter.html</accepts>
     </rule>
     <rule id="5dde2c24">
-        <description>Created after removal of "Functionality" from Help Instance</description>
+        <description>Created after removal of "Functionality" from UCanPay API Docs</description>
         <accepts>Functionality.html</accepts>
     </rule>
     <rule id="1d68c164">
-        <description>Created after removal of "Quick Start" from Help Instance</description>
+        <description>Created after removal of "Quick Start" from UCanPay API Docs</description>
         <accepts>Quick-Start.html</accepts>
     </rule>
     <rule id="77e5e920">
-        <description>Created after removal of "This is the first topic" from Help Instance</description>
+        <description>Created after removal of "This is the first topic" from UCanPay API Docs</description>
         <accepts>Default-topic.html</accepts>
     </rule>
 </rules>

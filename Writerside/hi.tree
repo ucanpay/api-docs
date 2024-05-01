@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="hi"
-                  name="Help Instance"
+                  name="UCanPay API Docs"
                   start-page="Overview.md">
 
     <toc-element topic="Overview.md">
@@ -32,7 +32,11 @@
         <toc-element topic="User-Guides.md"/>
         <toc-element topic="Support-Community.md"/>
         <toc-element topic="Rate-Limiting-Quotas.md"/>
-        <toc-element topic="Compliance-Legal.md"/>
+    </toc-element>
+    <toc-element topic="Compliance-Legal.md">
+        <toc-element topic="Privacy-Policy.md"/>
+        <toc-element topic="User-Agreement.md"/>
+        <toc-element topic="Pre-Authorized-Debit-Agreement.md"/>
     </toc-element>
     <toc-element topic="Versioning-Updates.md"/>
     <toc-element topic="API-Changelog.md"/>

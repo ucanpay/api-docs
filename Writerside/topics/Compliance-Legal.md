@@ -1,4 +1,4 @@
-# Compliance &amp; Legal
+# Compliance & Legal
 
 UCanPay adheres to strict compliance standards and legal regulations to ensure the highest levels of security and
 responsibility. This section outlines our compliance policies and the legal framework within which we operate.
@@ -25,12 +25,12 @@ transactions are processed securely and lawfully.
 We are committed to upholding our legal obligations to our customers and partners. Here are key areas of our legal
 responsibility:
 
-**User Data Protection**
+### User Data Protection
 
 UCanPay implements advanced security measures to protect user data against unauthorized access and data breaches. Our
 legal team continuously updates our policies to align with new data protection laws.
 
-**Financial Regulations**
+### Financial Regulations
 
 We ensure that all financial transactions comply with the laws of the jurisdictions in which we operate. This includes
 abiding by anti-money laundering (AML) and counter-financing of terrorism (CFT) regulations.
@@ -58,21 +58,11 @@ environment.
 
 Access important legal documents related to our services:
 
-<seealso>
-    <category ref="wrs">
-        <a href="https://ucanpay.ca/terms-of-service">Terms of Service</a>
-        <a href="https://ucanpay.ca/privacy-policy">Privacy Policy</a>
-    </category>
-</seealso>
-
-<seealso>
-    <category ref="wrs">
-        <a href="https://ucanpay.ca/compliance-documents">Compliance Documents</a>
-        <a href="https://ucanpay.ca/legal-resources">Legal Resources</a>
-    </category>
-</seealso>
+- [Privacy Policy](https://ucanpay.ca/privacy-policy)
+- [User Agreement](https://ucanpay.ca/wallet_tos)
+- [Pre-Authorized Debit Agreement](https://ucanpay.ca/wallet_preauthorized_debit_agreement)
 
 ## Contacting Our Legal Department
 
-For any legal inquiries or issues, please contact our legal department through the following methods:
-<a href="https://ucanpay.ca/legal-resources">Support</a>
+For any legal inquiries or issues, please contact our legal department through the following method:
+[Support](https://ucanpay.ca/contact)
